@@ -1,0 +1,3 @@
+regenerate: true
+paginate: 20
+paginator.per_page: 20

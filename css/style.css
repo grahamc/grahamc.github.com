@@ -1,0 +1,158 @@
+body {
+	background: #E4E4E4 url(http://grahamc.com/wp-content/themes/canvas/styles/magnus/bg.jpg) no-repeat 50% 0%;;
+	width: 99%;
+}
+
+.clear {
+    clear: both;
+}
+
+#container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 940px;
+	padding: 10px 0px 40px;
+}
+
+#masthead {
+	width: 100%;
+	padding-top: 40px;
+	padding-bottom: 30px;
+    
+}
+
+h2 {
+    font: normal normal bold 28px/1.2em 'Myriad Pro', Myriad, sans-serif;
+}
+
+
+#masthead h1 {
+	font-family: 'Myriad Pro', Myriad, 'Trebuchet MS', Arial, sans-serif;
+	text-transform: uppercase;
+	text-shadow: white 1px 2px;
+	font-size: 40px;
+	margin-bottom: 0px;
+}
+
+#masthead p {
+	font: italic normal normal 14px/1em Georgia, serif;
+	color: #999999;
+	margin-top: 0px;
+}
+
+#content {
+	width: 610px;
+	padding: 0px 0px 40px;
+}
+
+#content a {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#content a:link, #content a:visited {
+    color: #838C1C;
+}
+
+#content a:hover {
+    text-decoration: underline;
+    color: #A8B326;
+}
+
+#content div.entry {
+	background: white url(http://grahamc.com/wp-content/themes/canvas/styles/magnus/bg-gradient.png) repeat-x;
+	border-bottom: 1px solid #DBDBDB;
+	border-top: 1px solid white;
+	margin-bottom: 30px;
+	padding: 20px;
+}
+
+#content div.entry div.meta {
+    margin: 10px 0px 25px;
+    font: normal normal normal 11px/1em Verdana, Geneva, sans-serif;
+    color: #868686;
+}
+
+#content div.entry div.meta span.date {
+    text-transform: uppercase;
+}
+
+#content div.entry p {
+    font: normal normal normal 14px/1.5em Arial, sans-serif;
+    color: #555;
+    margin-bottom: 1.5em;
+}
+
+#content div.entry div.completer {
+    border-bottom: 0px solid #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+    color: #868686;
+    padding: 10px 0px;
+    margin-top: 10px;
+    font: normal normal normal 12px/1.5em Arial, sans-serif;
+}
+
+
+#content div.navigation {
+    background-color: white;
+    border-bottom: 40px solid #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+    border-width: 1px 0px 4px;
+    padding: 10px 15px;
+    font-size: 11px;
+    clear: both;
+}
+
+#content div.navigation a {
+    color: #777 !important;
+    font: italic normal normal 12px/1.5em Georgia, serif;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+#content div.navigation div.newer {
+    float: left;
+}
+
+#content div.navigation div.older {
+    float: right;
+}
+
+
+#footer {
+    width: 940px;
+    background: #CCC;
+    border-top: 1px solid #BBB;
+    min-height: 40px;
+    padding: 10px 0px 0px 10px;
+}
+
+#copyright {
+    border-top: 4px solid #DBDBDB;
+    padding: 20px 0px;
+    color: #777;
+    font: italic normal normal 14px/normal Georgia, serif;
+}
+
+#sidebar {
+	background: #FEFEFE url(http://grahamc.com/wp-content/themes/canvas/styles/magnus/bg-gradient.png) repeat-x;
+	float: right;
+	width: 300px;
+	border-bottom-left-radius: 3px 3px;
+	border-bottom-right-radius: 3px 3px;
+	border-top-left-radius: 3px 3px;
+	border-top-right-radius: 3px 3px;
+	font-family: 'Trebuchet MS', Tahoma, sans-serif;
+	font-size: 15px;
+}
+
+#sidebar .block {
+	background-color: #F0F0F0;
+	margin: 10px 10px 10px 10px;
+}
+
+#sidebar strong {
+	font-family: Georgia, serif;
+	font-weight: thick;
+	color: #555;
+}
