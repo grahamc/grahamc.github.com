@@ -110,11 +110,11 @@ h2 {
     text-transform: capitalize;
 }
 
-#content div.navigation div.newer {
+#content div.navigation a.newer {
     float: left;
 }
 
-#content div.navigation div.older {
+#content div.navigation a.older {
     float: right;
 }
 
