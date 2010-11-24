@@ -137,13 +137,16 @@ h2 {
 #sidebar {
 	background: #FEFEFE url(http://grahamc.com/wp-content/themes/canvas/styles/magnus/bg-gradient.png) repeat-x;
 	float: right;
-	width: 300px;
+	width: 258px;
 	border-bottom-left-radius: 3px 3px;
 	border-bottom-right-radius: 3px 3px;
 	border-top-left-radius: 3px 3px;
 	border-top-right-radius: 3px 3px;
-	font-family: 'Trebuchet MS', Tahoma, sans-serif;
-	font-size: 15px;
+	border: 1px solid white;
+	
+    color: #555;
+    font: normal normal normal 12px/1.5em Georgia, serif;
+    padding: 20px;
 }
 
 #sidebar .block {
