@@ -1,5 +1,5 @@
 body {
-	background: #E4E4E4 url(http://grahamc.com/wp-content/themes/canvas/styles/magnus/bg.jpg) no-repeat 50% 0%;;
+	background: #E4E4E4 url(/images/bg.jpg) no-repeat 50% 0%;;
 	width: 99%;
 }
 
@@ -25,6 +25,17 @@ h2 {
     font: normal normal bold 28px/1.2em 'Myriad Pro', Myriad, sans-serif;
 }
 
+h3 {
+    margin: 1.8em 0px 0.8em;
+    color: #222;
+    font: normal normal normal 16px/1.5em Georgia, serif;
+}
+
+h4 {
+    margin: 1.8em 0px 0.8em;
+    color: #222;
+    font: normal normal normal 14px/1.5em Georgia, serif;
+}
 
 #masthead h1 {
 	font-family: 'Myriad Pro', Myriad, 'Trebuchet MS', Arial, sans-serif;
@@ -46,7 +57,7 @@ h2 {
 }
 
 #content a {
-    text-transform: uppercase;
+/*    text-transform: uppercase; */
     text-decoration: none;
 }
 
@@ -60,27 +71,40 @@ h2 {
 }
 
 #content div.entry {
-	background: white url(http://grahamc.com/wp-content/themes/canvas/styles/magnus/bg-gradient.png) repeat-x;
+	background: white url(/images/bg-gradient.png) repeat-x;
 	border-bottom: 1px solid #DBDBDB;
 	border-top: 1px solid white;
 	margin-bottom: 30px;
 	padding: 20px;
 }
 
-#content div.entry div.meta {
-    margin: 10px 0px 25px;
-    font: normal normal normal 11px/1em Verdana, Geneva, sans-serif;
-    color: #868686;
+#content div.entry h2 a {
+    color: #222 !important;
 }
 
-#content div.entry div.meta span.date {
-    text-transform: uppercase;
-}
-
-#content div.entry p {
+#content p {
     font: normal normal normal 14px/1.5em Arial, sans-serif;
     color: #555;
     margin-bottom: 1.5em;
+}
+
+#content ul, #content ol {
+    margin-left: 15px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+#content ul li {
+    list-style-type: disc;
+}
+
+#content ol li {
+    list-style-type: decimal;
+}
+
+#content ul li, #content ol li {
+    font: normal normal normal 14px/1.5em Arial, sans-serif;    
+    color: #555;
 }
 
 #content div.entry div.completer {
@@ -92,6 +116,9 @@ h2 {
     font: normal normal normal 12px/1.5em Arial, sans-serif;
 }
 
+#content div.entry div.completer span.date {
+    text-transform: uppercase;
+}
 
 #content div.navigation {
     background-color: white;
@@ -135,7 +162,7 @@ h2 {
 }
 
 #sidebar {
-	background: #FEFEFE url(http://grahamc.com/wp-content/themes/canvas/styles/magnus/bg-gradient.png) repeat-x;
+	background: #FEFEFE url(/images/bg-gradient.png) repeat-x;
 	float: right;
 	width: 258px;
 	border-bottom-left-radius: 3px 3px;
@@ -158,4 +185,15 @@ h2 {
 	font-family: Georgia, serif;
 	font-weight: thick;
 	color: #555;
+}
+
+blockquote {
+    background: url(/images/blockquote.png) no-repeat 0px 12px;
+    padding: 10px 20px 10px 50px;
+}
+
+blockquote p {
+    font-family: Arial, sans-serif;
+    font-style: italic !important;
+    vertical-align: baseline;
 }

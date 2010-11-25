@@ -1,72 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>Making Objects Linkable in Symfony | Graham Christensen</title>
+---
+layout: base
+title: Graham Christensen
+---
+<!-- Begin Sidebar -->
+<div id="sidebar">
+	<p><strong>Graham Christensen</strong> is a home-brew
+		scientist, hardware	guy, and a symfony developer. He
+		loves to dabble in everything he can get himself into.
+		Lately that means the <strong>Arduino platform</strong>
+		and <strong>restaurants</strong>.</p>
+</div>
+<!-- End Sidebar -->
 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-		<meta name="robots" content="index, follow" /> 
-		<meta name="description" content="Symfony development, hardware, and everything else, too." /> 
-		<meta name="keywords" content="graham christensen, exploration, innovation, symfony, arduino" /> 
-		
-		<link rel="stylesheet" href="../css/reset.css" type="text/css" />
-		<link rel="stylesheet" href="../css/style.css" type="text/css" />
-	</head>
+<!-- Begin Content -->
+<div id="content">
+	{% if paginator.posts %}
+    	{% for post in paginator.posts %}
+			{% include normal_page.html %}
+    	{% endfor %}
+	{% else %}
+		{{ content }}
+	{% endif %}
+</div>
 
-	<body>
-		<div id="container">
-			<div id="masthead">
-				<h1>Graham Christensen</h1>
-				<p>Symfony development, hardware, and everything else too.</p>
-			</div>
+{% if paginator.next_page or paginator.previous_page %}
+<div class="navigation">
+	{% if paginator.previous_page %}
+	<a href="/page{{ paginator.previous_page }}" class="newer">« Newer Entries</a>
+	{% endif %}
+	{% if paginator.next_page %}
+	<a href="/page{{ paginator.next_page }}" class="older"> Older Entries »</a>
+	{% endif %}
+	<div class="clear"></div>
+</div>
+{% endif %}
 
-			<!-- Begin Sidebar -->
-			<div id="sidebar">
-				<p><strong>Graham Christensen</strong> is a home-brew
-					scientist, hardware	guy, and a symfony developer. He
-					loves to dabble in everything he can get himself into.
-					Lately that means the <strong>Arduino platform</strong>
-					and <strong>restaurants</strong>.</p>
-			</div>
-			<!-- End Sidebar -->
-			
-			<!-- Begin Content -->
-			<div id="content">
-				<div class="entry">
-					<h2>Making Objects Linkable in Symfony</h2>
-					<div class="meta">posted on <span class="date">September 10, 2010</span></div>
-					<p>While working on a new project, I was exhausted by all
-						the link_to writing I had been doing. It was repetitive,
-						and even though I was using proper object-based routes
-						– it was still ugly. All of them were formatted the
-						exact same way, it was just silly. Definitely not DRY.</p>
-					<div class="completer">
-						<a href="#">Read Full Story</a>
-					</div>
-				</div>
-				<div class="entry">
-					<h2>Making Objects Linkable in Symfony</h2>
-					<div class="meta">posted on <span class="date">September 10, 2010</span></div>
-					<p>While working on a new project, I was exhausted by all
-						the link_to writing I had been doing. It was repetitive,
-						and even though I was using proper object-based routes
-						– it was still ugly. All of them were formatted the
-						exact same way, it was just silly. Definitely not DRY.</p>
-					<div class="completer">
-						<a href="#">Read Full Story</a>
-					</div>
-				</div>
-				<div class="navigation">
-					<a href="http://grahamc.com/" class="newer">« Newer Entries</a>
-					<a href="http://grahamc.com/page/2" class="older"> Older Entries »</a>
-					<div class="clear"></div>
-				</div>
-			</div>
-			<!-- End Content -->
-			<div id="footer">
-			</div>
-			<div id="copyright">
-				<p>© 2010 Graham Christensen. All Rights Reserved.</p>
-			</div>
-		</div>
-	</body>
-</html>
