@@ -1,7 +1,6 @@
 --- 
 layout: post
 title: Making Objects Linkable in symfony
-published: false
 ---
 While working on a new project, I was exhausted by all the `link_to` writing I
 had been doing. It was repetitive, and even though I was using proper

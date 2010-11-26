@@ -43,12 +43,14 @@ h5 {
     font: normal normal normal 16px/1.5em Georgia, serif;
 }
 
-#masthead h1 {
+#masthead h1, #masthead a {
 	font-family: 'Myriad Pro', Myriad, 'Trebuchet MS', Arial, sans-serif;
 	text-transform: uppercase;
 	text-shadow: white 1px 2px;
 	font-size: 40px;
 	margin-bottom: 0px;
+	color: #222;
+	text-decoration: none;
 }
 
 #masthead p {

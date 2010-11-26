@@ -14,6 +14,6 @@ Add the following to your `app.yml`:
 {% highlight yaml %}
 all:
   sf_guard_plugin:
-    success_signin_url:      @my_route?param=value
+    success_signin_url:      '@my_route?param=value'
     success_signout_url:     module/action
 {% endhighlight %}

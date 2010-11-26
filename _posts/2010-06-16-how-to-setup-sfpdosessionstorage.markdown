@@ -1,8 +1,6 @@
 --- 
-wordpress_id: 270
 layout: post
 title: How to Setup sfPDOSessionStorage
-wordpress_url: http://grahamc.com/?p=270
 ---
 Setting up sfPDOSessionStorage is a fairly simple matter to make sure that
 sessions exist on a setup with multiple web-heads. 
