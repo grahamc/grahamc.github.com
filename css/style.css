@@ -28,13 +28,19 @@ h2 {
 h3 {
     margin: 1.8em 0px 0.8em;
     color: #222;
-    font: normal normal normal 16px/1.5em Georgia, serif;
+    font: normal normal normal 24px/1.5em Georgia, serif;
 }
 
 h4 {
     margin: 1.8em 0px 0.8em;
     color: #222;
-    font: normal normal normal 14px/1.5em Georgia, serif;
+    font: normal normal normal 20px/1.5em Georgia, serif;
+}
+
+h5 {
+    margin: 1.8em 0px 0.8em;
+    color: #222;
+    font: normal normal normal 16px/1.5em Georgia, serif;
 }
 
 #masthead h1 {
@@ -85,6 +91,10 @@ h4 {
 #content p {
     font: normal normal normal 14px/1.5em Arial, sans-serif;
     color: #555;
+    margin-bottom: 1.5em;
+}
+
+.highlight {
     margin-bottom: 1.5em;
 }
 

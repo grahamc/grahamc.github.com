@@ -59,7 +59,7 @@ do {
 
 // Create a testing environment
 debug('Copying the working copy from '
- 	  . $repository_parent_directory . ' to ' . $test_directory);
+      . $repository_parent_directory . ' to ' . $test_directory);
 mkdir($test_directory);
 
 // the run_command function is used for easy debugging of what's
@@ -76,20 +76,20 @@ chdir($test_directory);
 // code is the same.
 foreach ($test_commands as $command) {
     // Create error files within the testing directory so they're
-	// cleaned up nicely
+    // cleaned up nicely
     $error_file = $test_directory . '/errfile_'
                   . md5($command . mt_rand()) . '.err_log';
 
     // Pipe ALL of the command's output to the file for convenient
-	// error messages.
-    $cmd = $command . ' &gt; ' . $error_file . ' 2&gt;&amp;1';
+    // error messages.
+    $cmd = $command . ' > ' . $error_file . ' 2>&1';
     exec($cmd, $r, $return_code);
 
     // Symfony doesn't always return something other than 0 when
-	// errors occur. Because of that you have to test for both
-	// conditions, note that because errorsInLog is second - it is
-	// only executed if the first one doesn't pass which saves time
-	// if Symfony does what it should be.
+    // errors occur. Because of that you have to test for both
+    // conditions, note that because errorsInLog is second - it is
+    // only executed if the first one doesn't pass which saves time
+    // if Symfony does what it should be.
     if ($return_code != 0 || errorsInLog($error_file)) {
         // because $error_code isn't always 1 when it fails, set it
         $return_code = 1;
@@ -115,12 +115,12 @@ exit($return_code);
 // necessarily have a standard format, so check a few things that 
 // are generally common.
 function errorsInLog($logfile) {
-	$emsgs = array();
-	$emsgs[] = 'If the exception message is not clear enough, '
+    $emsgs = array();
+    $emsgs[] = 'If the exception message is not clear enough, '
              . 'read the output of the task for more information';
-	$emsgs[] = 'Some problems occurred when executing the task:';
-	$emsgs[] = 'Aborting';
-	
+    $emsgs[] = 'Some problems occurred when executing the task:';
+    $emsgs[] = 'Aborting';
+    
     // This could be optimized to fgets the file line by line
     foreach (file($logfile) as $line) {
         foreach ($emsgs as $error) {
