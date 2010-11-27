@@ -10,7 +10,7 @@ digest:
 
 delremote:
 	scp DIGEST yakko:~/grahamc.com/main/test/
-	ssh yakko "for i in `cat DIGEST`; do rm -r \"~/grahamc.com/main/test/$i\"; done"
+	ssh yakko 'for i in `cat ~/grahamc.com/main/test/DIGEST`; do rm "~/grahamc.com/main/test/$i"; done'
 
 push:
 	scp -r _site/ yakko:~/grahamc.com/main/test
