@@ -188,9 +188,13 @@ h5 {
     padding: 20px;
 }
 
-#sidebar .block {
-	background-color: #F0F0F0;
-	margin: 10px 10px 10px 10px;
+#sidebar p {
+	margin-bottom: 10px;
+}
+
+#sidebar .rss {
+    background: #FFF url(/images/rss.png) no-repeat right;
+    padding-right: 20px;
 }
 
 #sidebar strong {
@@ -208,4 +212,10 @@ blockquote p {
     font-family: Arial, sans-serif;
     font-style: italic !important;
     vertical-align: baseline;
+}
+
+.rss {
+    color: #C63F00;
+    text-decoration: none;
+    font: normal normal bold 14px/normal Georgia, serif;
 }
