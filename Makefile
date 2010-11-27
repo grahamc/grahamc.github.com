@@ -11,16 +11,17 @@ digest:
 	find ./_site/ -type f \( ! -iname ".*" \) | sed "s/\/_site\///" > DIGEST
 
 delremote:
-	scp remote_clean.sh yakko:~/grahamc.com/main/test/
-	ssh yakko "bash ~/grahamc.com/main/test/remote_clean.sh"
-	ssh yakko "rm ~/grahamc.com/main/test/remote_clean.sh"
+	scp remote_clean.sh yakko:~/grahamc.com/main/public/
+	ssh yakko "bash ~/grahamc.com/main/public/remote_clean.sh"
+	ssh yakko "rm ~/grahamc.com/main/public/remote_clean.sh"
 	growlnotify -m "BLOG: Remote Deleted."
 push:
-	scp -r _site/* yakko:~/grahamc.com/main/test
+	scp -r _site/* yakko:~/grahamc.com/main/public
 	growlnotify -m "BLOG: Uploaded."
 
 generate:
 	jekyll
+	chmod -R 755 _site/*
 	growlnotify -m "BLOG: Built."
 
 exec:
