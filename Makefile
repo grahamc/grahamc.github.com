@@ -35,7 +35,7 @@ generate:
 serve:
 	jekyll --server
 
-TOPIC ?= hi there
+TOPIC ?= new article
 FILE = $(shell date "+./_posts/%Y-%m-%d-$(TOPIC).markdown" | sed -e y/\ /-/)
 new:
 	echo "---" >> $(FILE)
