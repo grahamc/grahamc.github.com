@@ -25,7 +25,7 @@ digest:
 
 sitemap: digest
 	./_scripts/build_sitemap.php
-	make digest
+	@make digest
 
 delremote:
 	scp _scripts/remote_clean.sh $(REMOTE)/
