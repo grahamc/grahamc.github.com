@@ -17,7 +17,10 @@ title: Graham Christensen
 <div id="content">
 	{% if paginator.posts %}
     	{% for post in paginator.posts %}
-			{% include normal_page.html %}
+			{% if post.hold %}
+			{% else %}
+				{% include normal_page.html %}
+			{% endif %}
     	{% endfor %}
 	{% else %}
 		{{ content }}
