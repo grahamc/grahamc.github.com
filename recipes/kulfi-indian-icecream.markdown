@@ -1,5 +1,6 @@
 ---
 title: Kulfi (Indian Ice-Cream)
+layout: post
 ---
 ### Ingredients
 - 1 12 oz can of evaporated milk
