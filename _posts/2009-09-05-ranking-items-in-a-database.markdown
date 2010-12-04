@@ -1,6 +1,7 @@
 --- 
 layout: post
 title: Ranking Items in a Database
+disqus_id: beb99657aa115445a848e3fc65af772e
 ---
 At work recently, I was tasked to create a system that ranked items in a
 database, from least to greatest based on a time measurement. Originally

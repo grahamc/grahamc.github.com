@@ -3,8 +3,9 @@ title: Kulfi (Indian Ice-Cream)
 layout: post
 ---
 ### Ingredients
-- 1 12 oz can of evaporated milk
-- 3.5 oz of black, Red-Label loose leaf tea
+
+- 12 oz can of evaporated milk
+- 3 1/2 oz of black, Red-Label loose leaf tea
 - 1/2 teaspoon ground cardamom
 - 1 14oz can sweetened condensed milk
 - 1 cup heavy cream

@@ -1,6 +1,7 @@
 --- 
 layout: post
 title: Forcing SSL and HTTPS with Redirects on Symfony 1.2
+disqus_id: 133 http://iamgraham.net/?p=133
 ---
 Forcing SSL on certain modules and actions used to be pretty simple with
 Symfony's sfSslRequirementPlugin, however since Symfony 1.2 came out - it

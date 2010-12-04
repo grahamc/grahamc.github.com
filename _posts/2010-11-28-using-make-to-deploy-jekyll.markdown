@@ -1,4 +1,13 @@
-build: generate sitemap
+---
+title: Using `make' to Deploy Jekyll
+layout: post
+published: false
+disqus_id: 77c919d69586680d60025c6c47605003
+---
+
+
+{% highlight makefile %}
+build: generate sitemap digest
 deploy: build push
 server: serve
 serve: run
@@ -21,11 +30,10 @@ clean:
 .PHONY: digest
 digest:
 	find ./_site/ -type f \( ! -iname ".*" \) \
-	| sed "s/\/_site\///" > _site/DIGEST
+	| sed "s/\/_site\///" > DIGEST
 
 sitemap: digest
 	./_scripts/build_sitemap.php
-	@make digest
 
 delremote:
 	scp _scripts/remote_clean.sh $(REMOTE)/
@@ -49,7 +57,6 @@ new:
 	echo "---" >> $(FILE)
 	echo "title: $(TOPIC)" >> $(FILE)
 	echo "published: false" >> $(FILE)
-	echo "discus_id: " `md5 -qs $(FILE)` >> $(FILE)
 	echo "---" >> $(FILE)
 	open $(FILE)
 
@@ -59,3 +66,4 @@ REMOTE = $(REMOTEHOST):$(REMOTEDIR)
 
 TOPIC ?= new article
 FILE = $(shell date "+./_posts/%Y-%m-%d-$(TOPIC).markdown" | sed -e y/\ /-/)
+{% endhighlight %}

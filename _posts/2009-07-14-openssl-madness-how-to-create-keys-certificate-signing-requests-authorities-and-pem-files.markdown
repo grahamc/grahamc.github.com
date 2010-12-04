@@ -1,8 +1,8 @@
 --- 
 layout: post
 title: Creating SSL keys, CSRs, self-signed certificates, and .pem files.
+disqus_id: 5f2b43fcd41d85a38d605aae8bf33d54
 ---
-<!--more-->
 ### What is the whole darned process?
 Well that's a good question. For my purposes, this is what I need to know:
 

@@ -1,6 +1,7 @@
 --- 
 layout: post
 title: Sane Pre-Commit Hooks for Symfony + Git
+disqus_id: 4 tag:iamgraham.net,2009:sane-pre-commit-hooks-for-symfony-git/1251087513
 ---
 Throughout my history of working with Symfony, I've noticed a trend that
 I'll make a minor edit in a database configuration file, forget to actually

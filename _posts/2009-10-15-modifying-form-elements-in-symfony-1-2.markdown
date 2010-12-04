@@ -1,6 +1,7 @@
 --- 
 layout: post
 title: Modifying Form Elements in Symfony 1.2
+disqus_id: 98c6ad2c11a0dc406c5f9a27d494c7f4
 ---
 As I found in recent development of an app, I needed to change one of Symfony's
 form on the fly (more specifically, I needed to change a drop-down,

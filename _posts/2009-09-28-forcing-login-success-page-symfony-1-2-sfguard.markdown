@@ -1,6 +1,7 @@
 --- 
-wordpress_id: 157
+layout: post
 title: Forcing Login Success Page, Symfony 1.2 + sfGuard
+disqus_id: 3085e8b4d90134f94888747b289f5440
 ---
 Working on my latest project, we needed to force a specific page to be sent to
 after login. After quite a bit of searching, I went to the most logical

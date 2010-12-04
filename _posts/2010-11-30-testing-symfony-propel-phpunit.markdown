@@ -1,6 +1,7 @@
 ---
 title: Testing Symfony and Propel With PHPUnit
 layout: post
+disqus_id: eb3e0a8b7ed4557497784914a5731168
 ---
 
 Running PHPUnit alongside of symfony is a fairly easy matter. Including the
