@@ -90,4 +90,4 @@ specify the bootstrap.php which you just created. At this stage you just
 execute `phpunit` and all should be well.
 
 *For the record, I never did discover the cause of the question marks. I did,
-discover, however, that the trick is to enable **process isolation**.*
+discover, however, that the trick is to enable process isolation.*

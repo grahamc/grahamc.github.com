@@ -63,16 +63,16 @@ h5 {
 	padding: 0px 0px 40px;
 }
 
-#content a {
+a {
 /*    text-transform: uppercase; */
     text-decoration: none;
 }
 
-#content a:link, #content a:visited {
+a:link, a:visited {
     color: #838C1C;
 }
 
-#content a:hover {
+a:hover {
     text-decoration: underline;
     color: #A8B326;
 }
@@ -163,13 +163,8 @@ h5 {
     border-top: 1px solid #BBB;
     min-height: 40px;
     padding: 10px 0px 0px 10px;
-}
-
-#copyright {
-    border-top: 4px solid #DBDBDB;
-    padding: 20px 0px;
-    color: #777;
     font: italic normal normal 14px/normal Georgia, serif;
+    color: #777;
 }
 
 #sidebar {
@@ -196,6 +191,12 @@ h5 {
     padding-right: 20px;
 }
 
+#sidebar a.rss {
+    color: #C63F00 !important;
+    text-decoration: none !important;
+    font: normal normal bold 14px/normal Georgia, serif !important;
+}
+
 #sidebar strong {
 	font-family: Georgia, serif;
 	font-weight: thick;
@@ -213,11 +214,7 @@ blockquote p {
     vertical-align: baseline;
 }
 
-.rss {
-    color: #C63F00;
-    text-decoration: none;
-    font: normal normal bold 14px/normal Georgia, serif;
-}
+
 
 .ribbon {
   background-color: #a00;
