@@ -29,8 +29,8 @@ sitemap: digest
 
 delremote:
 	scp _scripts/remote_clean.sh $(REMOTE)/
-	ssh yakko "bash $(REMOTEDIR)/remote_clean.sh"
-	ssh yakko "rm $(REMOTEDIR)/remote_clean.sh"
+	ssh $(REMOTEHOST) "bash $(REMOTEDIR)/remote_clean.sh"
+	ssh $(REMOTEHOST) "rm $(REMOTEDIR)/remote_clean.sh"
 	growlnotify -m "BLOG: Remote Deleted."
 
 push: delremote
