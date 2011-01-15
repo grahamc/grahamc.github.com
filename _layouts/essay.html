@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <link rel="stylesheet" href="/css/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/css/essay.css" type="text/css" />
+        {% if page.doublespaced %}
+        <link rel="stylesheet" href="/css/double.css" type="text/css" />
+        {% endif %}
+    </head>
+ 
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>Graham Christensen</h2>
+                <h2>graham@grahamc.com</h2>
+                <h2>{{ page.date }}</h2>
+            </div>
+
+            <div class="body">
+                <h1>{{ page.title }}</h1>
+                
+                {{ content }}
+            </div>
+        </div>
+    </body>
+</html>
