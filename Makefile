@@ -17,6 +17,7 @@ help:
 .PHONY: clean
 clean:
 	rm -rf _site/*
+	echo "*" > _site/.gitignore
 
 .PHONY: digest
 digest:
