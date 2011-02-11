@@ -3,9 +3,9 @@ title: 'How to Create a Super Nerdy Super Bowl Party That Everyone Will Love or:
 layout: post
 bigimg: 'http://a5.sphotos.ak.fbcdn.net/hphotos-ak-ash1/hs897.ash1/180547_10150379207205371_731005370_16747401_756589_n.jpg'
 ---
-To be quite frank, I don't care about football. I didn't even know who was playing in the Super Bowl until the day before when two people simultaneously expressed their excitement for _insert team here_ to kick _the other team_'s ass. Unfortunately I was being dragged into a party, but it wasn't without cause - we were going to eat 1,000 chicken wings before the night was out, and only 25 people were there to do it.
+To be quite frank, I don't care about football. I didn't even know who was playing in the Super Bowl until the day before when two people simultaneously expressed their excitement for _insert team here_ to kick _the other team_'s ass. Unfortunately I was being dragged into a party, but it wasn't without cause - we were going to eat 1,000 chicken wings before the night was out, and only 25 people were there to do it. We called it [KeepWinging](http://keepwinging.com).
 
-Now this was pretty close to enough for me to enjoy it, but since NationalField is a data and analytics driven company, we needed to step it up.
+Now this was pretty close to enough for me to enjoy it, but since [NationalField](http://nationalfield.org) is a data and analytics driven company, we needed to step it up.
 
 ### Thursday Night
 Three days before the big day we decided that in order to really know for certain how many wings we've eaten, we needed an accurate count. We needed a great, fun, real-time dashboard of how many wings we've snarfed down, and an easy, BBQ-sauce friendly way to report that data. A solution that means no sticky fingers or beer on my laptop.
@@ -22,7 +22,7 @@ I had a lot to do in just 48 hours:
 
 We wanted a very simple dashboard which would display only the most important stats in our venture to eat 250 chickens worth of buffalo wings. We also wanted it to be live-updating, and give some level of competition between users.
 
-This was done with a simple jQuery `$.get()` call plus a setTimeout at the end. The polling was simple and quick, and for a guy who doesn't know Javascript very well - it was just perfect. I looked at Node.JS, however with only three days to go I didn't have the time to learn it.
+This was done with a simple jQuery `$.get()` call plus a `setTimeout` at the end. The polling was simple and quick, and for a guy who doesn't know Javascript very well - it was just perfect. I looked at Node.JS, however with only three days to go I didn't have the time to learn it.
 
 #### What We Came Up With
 - **Leaderboard**: The top nine users, showing their total wing consumption and how they compared to the people behind them. This seemed to encourage people who were five below a spot to eat more, and had people fighting to stay on the board.
@@ -33,23 +33,23 @@ Each of these items would automatically refresh every second or two, so feedback
 
 ### The Feed
 ![The KeepWinging Feed](/resources/2011-02-11-feed.png)
-> On a TV the arrows would line up with the face. iPad != TV
+> The feed would update every second.
 
 Let's face it, the internet loves a good live-updating feed of what is going on. We love that instant feedback of change in our lives, so we couldn't resist building one.
 
 The feed was extremely simple, and only updated when a user registered or ate more wings. This view however, was exciting to have and be able to see how quickly people were allocating themselves more wings.
 
 ## How It All Worked
-The solution to mess-free reporting was pretty obvious: RFID. Each participant would register an RFID tag with the system, and every time they threw out 5 wings they would be allowed to scan their tag. Since I already had a reader, this was feasible.
+The solution to mess-free reporting was pretty obvious: RFID (`Radio Frequency IDentification`, like what you might scan to open a keyless door.) Each participant would register an RFID tag with the system, and every time they threw out 5 wings they would be allowed to scan their tag. Since I already had a reader, this was feasible.
 
 ### KeepWinging.com
-KeepWinging.com was written entirely in Symfony with Propel; it had a very simple JSON RPC API for providing the data we needed for the content pages - and a single reporting endpoint.
+[KeepWinging](http://keepwinging.com) was written entirely in [Symfony](http://symfony-project.org) using [Propel](http://www.propelorm.org); it had a very simple `JSON RPC API` for providing the data we needed for the content pages - and a single reporting endpoint.
 
 I started writing the code on Friday evening and finally pulled it all together at 2:50 PM, Sunday afternoon, with the party starting at 3:00PM. Perfect timing.
 
 ### The RFID Reader
 ![The RFID Process](/resources/2011-02-11-rfid-reader.png)
-Thursday night was spent building the RFID reader: an arduino with a Parallax RFID reader which I got from [SparkFun](http://sparkfun.com/), a couple of LEDS, all mushed into a used Korean Bibimbop take-out dish. It was perfect. All we needed were the RFID tags.
+Thursday night was spent building the RFID reader: an [arduino](http://www.sparkfun.com/products/9950) with a [Parallax RFID reader](http://www.radioshack.com/product/index.jsp?productId=2906723) which I got from RadioShack, a couple of LEDS, all mushed into a used Korean [Bibimbop](http://en.wikipedia.org/wiki/Bibimbap) take-out dish. It was perfect. All we needed were the RFID tags.
 
 I also incorporated some simple human feedback: users are used to visual _and _ audio feedback when reading a tag like this. I incorporated a visual cue
 by having a red and blue LED. When the tag was scanned, the blue light would switch to red. Unfortunately I didn't have a buzzer loud enough to stand a chance at a party, so I removed this part of the feedback. (Yes, I did get complaints that it didn't beep or buzz.)
