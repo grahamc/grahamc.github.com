@@ -78,3 +78,5 @@ That task would perform the registration or the reporting through a very simple 
 At the end of the night, we were about 20 away from finishing off a thousand - but the simple fact was that nobody could stand to eat five more. Solution: Reduce the report number down to 1, and everyone only has to eat one more wing to push us over. After a little bit of cheering and motivational speaking, we polished off an entire thousand buffalo wings right as the Super Bowl's clock ran out of time.
 
 Success.
+
+_This was also posted on NationalField's blog, at [http://nationalfield.org/2011/02/keepwinging/](http://nationalfield.org/2011/02/keepwinging/)_
