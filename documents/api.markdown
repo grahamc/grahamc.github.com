@@ -3,9 +3,27 @@ layout: code
 title: API Considerations
 ---
 
-<img src="http://hueniverse.com/wp-content/uploads/2007/12/My-Endpoints-300x267.png" alt="My Endpoint: Let me show you them." />
+
+![My Endpoints: Let me show you them'](http://hueniverse.com/wp-content/uploads/2007/12/My-Endpoints-300x267.png)
+
+### Brief REST Introduction
+`REST` uses the idea of `resources` and verbs to interact with a dataset. Verbs are strictly HTTP's provided verbs:
+
+- `GET` - Retrieve information about a resource (Does not modify anything)
+- `PUT` - Explicitly *update* or *create* a record (Will create the record if it does not exist)
+- `POST` - Explicitly *create* a record (Should fail if the record exists already)
+- `DELETE` - Delete a record
+
+These HTTP verbs are sent to endpoints which represent the data. For example, to update a Note with the ID of 1, you would: `PUT /note/1`
+
+Because of this, verbs are not appropriate in an endpoint: `GET /note/1/getGraph` would be: `GET /note/1/graph`.
 
 ### Caching
+> As on the World Wide Web, clients are able to cache responses. Responses must therefore, implicitly or explicitly, define themselves as cacheable or not to prevent clients reusing stale or inappropriate data in response to further requests. Well-managed caching partially or completely eliminates some client–server interactions, further improving scalability and performance.
+> - [REST: Constraints on Wikipedia](http://en.wikipedia.org/wiki/REST#Constraints)
+
+Caching can be implemented using the existing HTTP protocol through the following HTTP headers:
+
 - `Last-Modified`
 - `If-Modified-Since` (conditional requests)
 - `E-Tags`
