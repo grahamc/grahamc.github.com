@@ -231,3 +231,17 @@ blockquote p {
   text-align: center;
   text-decoration: none;
 }
+
+.bigimg {
+  max-width: 610px;
+  min-width: 610px;
+  width: 610px;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+#content div.entry img {
+  max-width: 550px;
+}

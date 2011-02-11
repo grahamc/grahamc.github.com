@@ -2,6 +2,11 @@
 layout: default
 ---
 <div class="entry">
+    {% if page.bigimg %}
+    <img src="{{ page.bigimg }}" class="bigimg" />
+    <br />
+    {% endif %}
+    
 	<h2>{{ page.title }}</h2>
 	{{ content }}
 	<div class="completer">
