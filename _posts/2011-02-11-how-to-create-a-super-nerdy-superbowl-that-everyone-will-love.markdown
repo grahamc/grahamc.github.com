@@ -1,10 +1,9 @@
 ---
-title: 'How to Create a Super Nerdy Superbowl Party That Everyone Will Love (or: RFID + 1,000 Chicken Wings... Wait, What?)'
+title: 'How to Create a Super Nerdy Super Bowl Party That Everyone Will Love or: RFID + 1,000 Chicken Wings (Wait... What?)'
 layout: post
 bigimg: 'http://a5.sphotos.ak.fbcdn.net/hphotos-ak-ash1/hs897.ash1/180547_10150379207205371_731005370_16747401_756589_n.jpg'
-hold: true
 ---
-To be quite frank, I don't care about football. I didn't even know who was playing in the superbowl until the day before when two people simultaneously expressed their excitement for _insert team here_ to kick _the other team_'s ass. Unfortunately I was being dragged into a party, but it wasn't without cause - we were going to eat 1,000 chicken wings before the night was out, and only 25 people were there to do it.
+To be quite frank, I don't care about football. I didn't even know who was playing in the Super Bowl until the day before when two people simultaneously expressed their excitement for _insert team here_ to kick _the other team_'s ass. Unfortunately I was being dragged into a party, but it wasn't without cause - we were going to eat 1,000 chicken wings before the night was out, and only 25 people were there to do it.
 
 Now this was pretty close to enough for me to enjoy it, but since NationalField is a data and analytics driven company, we needed to step it up.
 
@@ -26,8 +25,8 @@ We wanted a very simple dashboard which would display only the most important st
 This was done with a simple jQuery `$.get()` call plus a setTimeout at the end. The polling was simple and quick, and for a guy who doesn't know Javascript very well - it was just perfect. I looked at Node.JS, however with only three days to go I didn't have the time to learn it.
 
 #### What We Came Up With
-- **Leader-Board**: The top nine users, showing their total wing consumption and how they compared to the people behind them. This seemed to encourage people who were five below a spot to eat more, and had people fighting to stay on the board.
-- **Total Wings Consumed**: We actually had this in two places, in graph-form (which for some reason didn't display accurately, but the trend was correct) and as a big number along the top. It was so exciting seeing it roll over to 900, we knew it had to be possible to finish. Below this we also displayed the total number of wings remaining.
+- **Leaderboard**: The top nine users, showing their total wing consumption and how they compared to the people behind them. This seemed to encourage people who were five below a spot to eat more, and had people fighting to stay on the board.
+- **Total Wings Consumed**: We actually had this in two places, in graph form (which for some reason didn't display accurately, but the trend was correct) and as a big number along the top. It was so exciting seeing it roll over to 900, we knew it had to be possible to finish. Below this we also displayed the total number of wings remaining.
 - **Wings Per Hour (WPH)**: We thought it was very neat to know just how many wings we were eating per hour, and we also displayed the number of wings per hour which were necessary to complete the 1,000 wings by the end of the game. At one point we were up to 300 WPH.
 
 Each of these items would automatically refresh every second or two, so feedback was almost instant. We knew exactly when consumption was falling off, as well as when fresh "meat" joined. This was displayed on a gigantic television screen next to the wings.
@@ -49,8 +48,7 @@ KeepWinging.com was written entirely in Symfony with Propel; it had a very simpl
 I started writing the code on Friday evening and finally pulled it all together at 2:50 PM, Sunday afternoon, with the party starting at 3:00PM. Perfect timing.
 
 ### The RFID Reader
-> Insert a photo of the completed BBQRFID Reader
-
+![The RFID Process](/resources/2011-02-11-rfid-reader.png)
 Thursday night was spent building the RFID reader: an arduino with a Parallax RFID reader which I got from [SparkFun](http://sparkfun.com/), a couple of LEDS, all mushed into a used Korean Bibimbop take-out dish. It was perfect. All we needed were the RFID tags.
 
 I also incorporated some simple human feedback: users are used to visual _and _ audio feedback when reading a tag like this. I incorporated a visual cue
@@ -71,12 +69,12 @@ In order to get the tag data from the Arduino to the laptop, I had my brother an
 
 The code was simple enough: read 10 bytes from the reader, send it along through the USB serial port to my laptop using the Arduino's handy reader.
 
-![The RFID Process](/resources/2011-02-08-rfid.png)
+![The RFID Process](/resources/2011-02-11-rfid-process.png)
 > By having the registered check, setting up a new RFID tag was a snap and nearly problem-free.
 
 That task would perform the registration or the reporting through a very simple RPC API I built. This was no attempt at being RESTful; I just needed to get the thing done.
 
 ### Nearing the End
-At the end of the night, we were about 20 away from finishing off a thousand - but the simple fact was that nobody could stand to eat five more. Solution: Reduce the report number down to 1, and everyone only has to eat one more wing to push us over. After a little bit of cheering and motivational speaking, we polished off an entire thousand buffalo wings right as the superbowl's clock ran out of time.
+At the end of the night, we were about 20 away from finishing off a thousand - but the simple fact was that nobody could stand to eat five more. Solution: Reduce the report number down to 1, and everyone only has to eat one more wing to push us over. After a little bit of cheering and motivational speaking, we polished off an entire thousand buffalo wings right as the Super Bowl's clock ran out of time.
 
 Success.
