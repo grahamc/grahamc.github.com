@@ -2,6 +2,7 @@
 title: Using `make' to Manage Jekyll
 layout: post
 disqus_id: 77c919d69586680d60025c6c47605003
+excerpt: "Recently I switched from using Wordpress to Jekyll. I noticed a general trend using `rake` for managing the generation and deployment of the website. I've become quite fond of straight Makefiles, and ported their concepts utilities."
 ---
 
 Recently I switched from using Wordpress to Jekyll. I noticed a general trend
