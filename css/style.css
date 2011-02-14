@@ -89,6 +89,18 @@ a:hover {
     color: #222 !important;
 }
 
+a.homelink {
+    color: #222 !important;
+}
+
+a.homelink:* * {
+    color: #222 !important;
+}
+
+a.homelink:hover * {
+    color: #222 !important;
+}
+
 #content p {
     font: normal normal normal 14px/1.5em Arial, sans-serif;
     color: #555;
@@ -116,6 +128,11 @@ a:hover {
 #content ul li, #content ol li {
     font: normal normal normal 14px/1.5em Arial, sans-serif;    
     color: #555;
+}
+
+.homedate {
+    color: #868686;
+    font: normal normal normal 12px/1.5em Arial, sans-serif;
 }
 
 #content div.entry div.completer {
@@ -249,4 +266,9 @@ blockquote p {
   margin-top: -20px;
   margin-bottom: 20px;
   display: normal;
+}
+
+#content div.entry img.homepage {
+    margin-top: 10px;
+    margin-bottom: -20px;
 }
