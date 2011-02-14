@@ -1,6 +1,6 @@
 <?xml version="1.0" ?> 
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-
+<!-- _l: atom -->
 <channel>
     <title>Graham Christensen</title>
     <description>Symfony development, hardware, and everything else, too.</description>
