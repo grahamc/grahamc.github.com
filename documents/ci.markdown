@@ -3,6 +3,8 @@ title: Continuous Integration
 layout: post
 ---
 
+Note: My perspective on this article on continuous integration are for projects which find themselves in a tough spot on code quality. I try to focus mostly on metrics instead of specifics. On messy projects, trends are more actionable than specific validation failures.
+
 ### Inertia
 Projects have _inertia_. Bad practices lead to more bad practices. Bad code leads to more bad code. Fixing this is trivial.
 
@@ -91,3 +93,11 @@ Coding standard violations are often in the thousands, so again - knowing the tr
 Unfortunately starting whole-hog on enforcing a coding standard and keeping doc blocks up to date can be pretty intimidating for a team who isn't used to doing it. I would recommend starting a policy on one, and then as you watch the violations go down, implement more as violations go down.
 
 These should be introduced slowly to ease a team into the good practices. By going from zero to 100 in a day will almost certainly cause rejection.
+
+### More Information, Attribution, Eternal Gratitude, etc.
+I have to say I owe my two first born sons to [Cal Evans](http://blog.calevans.com/) and [Keith Casey](http://caseysoftware.com/) for their excellent research and information.
+
+Much of this information comes from their blogs and personal research, as well as these two slide shows:
+
+- [Unit Testing Strategies, by Dr. Keith Casey Jr.](http://www.phparch.com/wp-content/uploads/2010/11/CWX_UnitTesting.pdf)
+- [Five Tools You Should Know And Love, by Cal Evans](http://bit.ly/f0pmDH)
