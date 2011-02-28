@@ -3,7 +3,8 @@ title: Continuous Integration
 layout: post
 ---
 
-Note: My perspective on this article on continuous integration are for projects which find themselves in a tough spot on code quality. I try to focus mostly on metrics instead of specifics. On messy projects, trends are more actionable than specific validation failures.
+### About
+My perspective on this article on continuous integration are for projects which find themselves in a tough spot on code quality. I try to focus mostly on metrics instead of specifics. On messy projects, trends are more actionable than specific validation failures.
 
 ### Inertia
 Projects have _inertia_. Bad practices lead to more bad practices. Bad code leads to more bad code. Fixing this is trivial.
