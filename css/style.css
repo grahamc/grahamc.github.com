@@ -29,18 +29,27 @@ h3 {
     color: #222;
     font: normal normal normal 24px/1.5em Georgia, serif;
     font-weight: bold;
+    
+    font-family: 'DINPro';
+    font-weight: bolder;
 }
 
 h4 {
     margin: 1.8em 0px 0.8em;
     color: #222;
     font: normal normal normal 20px/1.5em Georgia, serif;
+    
+    font-family: 'DINPro';
+    font-weight: lighter;
 }
 
 h5 {
     margin: 1.8em 0px 0.8em;
     color: #222;
     font: normal normal normal 16px/1.5em Georgia, serif;
+    
+    font-family: 'DINPro';
+    font-weight: lighter;
 }
 
 #masthead h1, #masthead a {
