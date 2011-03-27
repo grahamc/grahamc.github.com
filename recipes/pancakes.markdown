@@ -1,23 +1,16 @@
 ---
-title: Pancakes
+title: Pancakes (Joy of Cooking)
 layout: post
 ---
 
 ### Ingredients
 - 1 1/2 cups all-purpose flour
-- 3 1/2 teaspoons baking powder
+- 1 1/4 teaspoons baking powder
 - 1 teaspoon salt
-- 1 tablespoon white sugar
+- 3 tablespoon white sugar
 - 1 1/4 cups milk
-- 1 egg
+- 1 or 2 eggs
 - 3 tablespoons butter, melted
-
-- 12 oz can of evaporated milk
-- 3 1/2 oz of black, Red-Label loose leaf tea
-- 1/2 teaspoon ground cardamom
-- 1 14oz can sweetened condensed milk
-- 1 cup heavy cream
-- Handful of finely chopped pistachios, plus extra for garnish
 
 ### Directions
 In a large bowl, sift together the flour, baking powder, salt and sugar. Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.
