@@ -6,7 +6,17 @@ layout: default
     {% if page.bigimg %}
     <img src="{{ page.bigimg }}" class="bigimg" />
     <br />
-    {% endif %}
+    {% else %}
+    {% if page.vimeo %}
+            <iframe
+                src="http://player.vimeo.com/video/{{ page.vimeo }}"
+                width="600"
+                height="340"
+                class="bigimg"
+                frameborder="0"></iframe>
+	{% endif %}
+	{% endif %}
+    
     
 	<h2>{{ page.title }}</h2>
 	{{ content }}

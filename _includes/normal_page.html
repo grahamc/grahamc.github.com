@@ -13,6 +13,23 @@
 	                class="bigimg homepage" />
 	    </a>
 	{% else %}
+	{% if post.vimeo %}
+    	<a href="{{ post.url }}" class="homelink">
+            <span class="homedate">
+                {{ post.date | date: "%B %d %Y" }}
+            </span>
+            <h2>
+                {{ post.title }}
+            </h2>
+            <iframe
+                src="http://player.vimeo.com/video/{{ post.vimeo }}"
+                width="600"
+                height="340"
+                class="bigimg homepage"
+                frameborder="0"></iframe>
+        </a>
+	
+	{% else %}
 	    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
 	    {% if post.excerpt %}
 	        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more...</a></p>
@@ -27,6 +44,7 @@
     		    posted on <span class="date">{{ post.date | date: "%B %d %Y" }}</span>
     	    </div>
     	{% endif %}
+	{% endif %}
 	{% endif %}
 
 </div>

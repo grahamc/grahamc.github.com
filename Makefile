@@ -51,7 +51,7 @@ new:
 	echo "title: $(TOPIC)" >> $(FILE)
 	echo "layout: post" >> $(FILE)
 	echo "published: false" >> $(FILE)
-	echo "discus_id: " `md5 -qs $(FILE)` >> $(FILE)
+	echo "disqus_id: " `md5 -qs $(FILE)` >> $(FILE)
 	echo "---" >> $(FILE)
 	open $(FILE)
 
