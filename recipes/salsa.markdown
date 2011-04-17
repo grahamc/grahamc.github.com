@@ -18,11 +18,13 @@ layout: post
 2. Cut the skin of the tomato all the way around. Do this twice, meeting like an X on the top and the bottom.
 3. Place the tomatoes and jalapeños on a baking sheet, and broil until the skin starts to brown. This usually takes about 30 minutes. More brown == more delicious.
 4. Dice the garlic and add it to a medium bowl.
-5. Dice the onion into tiny bits and add it to the bowl.
-6. Peel the tomatoes and mash them in the bowl. Make sure the tough middle bit is removed, and there are no large tomato parts left.
-7. Dice the jalapeños and add it to the bowl.
-8. Add 1/3 of the lime's juice.
-9. Add salt, pepper, and cilantro.
+5. Cut up cilantro, add it to the bowl.
+6. Dice the onion into tiny bits and add it to the bowl.
+7. Peel the tomatoes and mash them in the bowl. Make sure the tough middle bit is removed, and there are no large tomato parts left.
+8. Dice the jalapeños and add it to the bowl.
+9. Add 1/3 of the lime's juice.
+10. Add salt, pepper, and cilantro.
 
 #### Notes
-If you have a molcajete, grind the garlic and jalapeños in it, then just mash everything into that. It's delicious.
+- Don't save time with a food processor, it doesn't turn out very well.
+- If you have a molcajete, grind the garlic and jalapeños in it, then just mash everything into that. It's delicious.
