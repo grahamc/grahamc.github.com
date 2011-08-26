@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: Forcing SSL and HTTPS with Redirects on Symfony 1.2
+title: Forcing SSL and HTTPS with Redirects on Symfony 1.2, 1.3
 disqus_id: 133 http://iamgraham.net/?p=133
 ---
 Forcing SSL on certain modules and actions used to be pretty simple with
@@ -21,13 +21,29 @@ enabled or disabled by default, however that became too distorted in the code
 to make good, logical sense that was easy to read and maintain.
 
 ### Edit your filters.yml File
-Open up your `apps/app_name/config/filters.yml` file, and add in at the bottom:
+Open up your `apps/app_name/config/filters.yml` file, and add in after the security filter:
 
 {% highlight yaml %}
 sslFilter:
   class: sslFilter
 {% endhighlight %}
 > This code tells Symfony to load and execute the filter you'll be creating.
+
+It should look something like this:
+{% highlight yaml %}
+rendering: ~
+
+security:  ~
+
+sslFilter:
+  class: sslFilter
+
+cache:     ~
+
+common:    ~
+
+execution: ~
+{% endhighlight %}
 
 
 ### Edit your app.yml File
