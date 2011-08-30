@@ -2,4 +2,3 @@ paginate: 5
 paginator.per_page: 5
 pygments: true
 permalink: /blog/:title
-exclude: Makefile, remote_clean.sh
