@@ -2,6 +2,7 @@
 title: Testing Symfony and Propel With PHPUnit
 layout: post
 disqus_id: eb3e0a8b7ed4557497784914a5731168
+excerpt: "Running PHPUnit alongside of symfony is a fairly easy matter. Including the ProjectConfiguration file initializes the autoloader, your libraries get set up, everything is gravy... Except when its not."
 ---
 
 Running PHPUnit alongside of symfony is a fairly easy matter. Including the

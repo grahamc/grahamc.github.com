@@ -2,7 +2,11 @@
 layout: post
 title: Making Objects Linkable in symfony
 disqus_id: b2b7a6a0ac85a92f187213879176a1c7
+excerpt: "In a simple CRUD symfony application, repeatedly writing `link_to` is exhausting. This way is simpler."
 ---
+
+**Note:** This code isn't really workable on a complex application. Don't use it unless your system is basic CRUD.
+
 While working on a new project, I was exhausted by all the `link_to` writing I
 had been doing. It was repetitive, and even though I was using proper
 object-based routes - it was still ugly. All of them were formatted the exact

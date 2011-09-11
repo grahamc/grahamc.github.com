@@ -2,6 +2,7 @@
 layout: post
 title: How to Setup sfPDOSessionStorage
 disqus_id: 4c25ef3f842dc41e0e86231b9a2efa60
+excerpt: "Use the symfony plugin sfPDOSessionStorage to keep all web servers on the same page with your sessions."
 ---
 Setting up sfPDOSessionStorage is a fairly simple matter to make sure that
 sessions exist on a setup with multiple web-heads.

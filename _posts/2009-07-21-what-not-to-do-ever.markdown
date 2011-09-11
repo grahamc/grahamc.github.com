@@ -3,11 +3,6 @@ layout: post
 title: "Business: What to do, and what not to do"
 disqus_id: ac0b41f6f667c14636acecd74bcad290
 ---
-When I was working for [Easily Amused, Inc.](http://easilyamusedinc.com/) they
-started a blog named What Not To Do, Ever. Of course, this didn't work out as
-planned. Yadda yadda. Typical stuff for working at Easily Amused.
-
-Anywho, when I quit I wrote myself a list - things not to do... ever.
 
 ### What You Shouldn't <em>Ever</em> Do
 #### Even If You're Starving
