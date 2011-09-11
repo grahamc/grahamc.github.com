@@ -93,4 +93,3 @@ master`. This is to ensure consistency and "safe" merges.
 
 By keeping a strict, conservative practice of merging into `master` we help
 ensure that the branch is always stable and ready to be deployed.
-

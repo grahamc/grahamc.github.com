@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Sane Pre-Commit Hooks for Symfony + Git
 disqus_id: 4 tag:iamgraham.net,2009:sane-pre-commit-hooks-for-symfony-git/1251087513
@@ -113,7 +113,7 @@ shell_exec('rm -rf ' . $test_directory);
 exit($return_code);
 
 // Check for errors on the provided log file. They don't
-// necessarily have a standard format, so check a few things that 
+// necessarily have a standard format, so check a few things that
 // are generally common.
 function errorsInLog($logfile) {
     $emsgs = array();
@@ -121,7 +121,7 @@ function errorsInLog($logfile) {
              . 'read the output of the task for more information';
     $emsgs[] = 'Some problems occurred when executing the task:';
     $emsgs[] = 'Aborting';
-    
+
     // This could be optimized to fgets the file line by line
     foreach (file($logfile) as $line) {
         foreach ($emsgs as $error) {

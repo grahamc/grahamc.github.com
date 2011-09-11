@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Managing Remote SVN Branches in Git-SVN
 disqus_id: 43dca0c8685abfc28145c00136c97ecb

@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: "Sending Mail from a Task, Symfony 1.4; Fatal error: Class 'Swift_Message' not found"
 disqus_id: f07ffebb97378ba15bd53760aa73e0c4
@@ -15,18 +15,18 @@ And then the task:
 {% highlight php %}
 <?php
 class emailTestTask extends sfBaseTask {
-    
+
     /* ... configure() - nothing special */
-    
+
     protected function execute($arguments = array(),
                                    $options = array()) {
-                                    
+
         // initialize the database connection
         $databaseManager = new sfDatabaseManager($this->configuration);
         $db = $databaseManager->getDatabase($options['connection']);
         $connection = $db->getConnection();
-        
-        
+
+
         $c = new DomainReportMessage();
         $this->getMailer()->send($c);
     }
@@ -41,17 +41,17 @@ Here is the working code:
 {% highlight php %}
 <?php
 class emailTestTask extends sfBaseTask {
-    
+
     /* ... configure() - nothing special */
-    
+
     protected function execute($arguments = array(),
                                    $options = array()) {
-                                    
+
         // initialize the database connection
         $databaseManager = new sfDatabaseManager($this->configuration);
         $db = $databaseManager->getDatabase($options['connection']);
         $connection = $db->getConnection();
-        
+
         $this->getMailer();
         $c = new DomainReportMessage();
         $this->getMailer()->send($c);

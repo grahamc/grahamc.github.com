@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Modifying Form Elements in Symfony 1.2
 disqus_id: 98c6ad2c11a0dc406c5f9a27d494c7f4

@@ -56,7 +56,7 @@ by having a red and blue LED. When the tag was scanned, the blue light would swi
 
 One note about RFID readers which I learned during this project:
 > Since RFID readers use radio frequencies, the number of devices and signals we have going through the airways can cause false-positive matches. These codes would look like `F0000F0000` and were almost always obviously fake.
-> 
+>
 > In order to reduce the number of false positives received, it is recommended to try reading the tag twice within a few seconds (I used 2) before it considers it a successful read. This will prevent almost all false positive reads.
 
 ### The RFID Tags

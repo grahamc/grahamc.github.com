@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Ranking Items in a Database
 disqus_id: beb99657aa115445a848e3fc65af772e

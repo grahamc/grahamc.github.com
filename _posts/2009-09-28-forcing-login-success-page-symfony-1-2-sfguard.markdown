@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Forcing Login Success Page, Symfony 1.2 + sfGuard
 disqus_id: 3085e8b4d90134f94888747b289f5440

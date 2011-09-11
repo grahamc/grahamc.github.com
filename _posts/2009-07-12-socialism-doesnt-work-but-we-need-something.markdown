@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Socialism Doesn't Work, But We Need Something
 published: false

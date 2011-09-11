@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Creating SSL keys, CSRs, self-signed certificates, and .pem files.
 disqus_id: 5f2b43fcd41d85a38d605aae8bf33d54
@@ -114,7 +114,7 @@ however I have had pretty good success with simply combining the .key and the
 cat domain.tld.key domain.tld.crt > domain.tld.pem
 {% endhighlight %}
 
-### Disclaimer 
+### Disclaimer
 I am not an expert with SSL, which is exactly why I created this. This may not
 be accurate, YMMV, etc. Be careful. Also: Your .key is private. Keep that
 safe, with appropriate permissions. Make sure nobody else can access it,

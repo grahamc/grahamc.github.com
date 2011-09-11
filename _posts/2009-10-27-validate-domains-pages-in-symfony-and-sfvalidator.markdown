@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Validate a Domain is Valid and Exists, Symfony 1.2
 disqus_id: 4a9dc8c34e4adcb1d9110c9ba52206d0

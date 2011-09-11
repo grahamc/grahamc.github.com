@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: "Business: What to do, and what not to do"
 disqus_id: ac0b41f6f667c14636acecd74bcad290
@@ -25,7 +25,7 @@ Anywho, when I quit I wrote myself a list - things not to do... ever.
 	Clients don't know everything that they want, and will refine and expand
 	the project as it goes. This is ok, but not if they don't pay for it.
 - Let the client strangle you. If they can't be pleased and won't pay, make
-	sure your company can survive to finish the project. Be willing to drop 
+	sure your company can survive to finish the project. Be willing to drop
 	a client that is strangling your company, its not worth it.
 - Let a good idea keep you from getting anything done. Just because something
 	might be better long-term, doesn't mean now is a good time to do it.

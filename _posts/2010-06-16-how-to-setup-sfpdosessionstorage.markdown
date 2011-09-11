@@ -1,10 +1,10 @@
---- 
+---
 layout: post
 title: How to Setup sfPDOSessionStorage
 disqus_id: 4c25ef3f842dc41e0e86231b9a2efa60
 ---
 Setting up sfPDOSessionStorage is a fairly simple matter to make sure that
-sessions exist on a setup with multiple web-heads. 
+sessions exist on a setup with multiple web-heads.
 
 Add the following code to your `app/app_name/config/factories.yml` file:
 

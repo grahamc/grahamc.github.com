@@ -63,10 +63,10 @@ However would have slightly more complicated results:
 {% highlight javascript %}
 {
     // These are as you would expect:
-    'C': [1, 2, 3], 
+    'C': [1, 2, 3],
     'GC': [4, 5, 6, 7, 8],
     'All': [1, 2, 3, 4, 5, 6, 7, 8]
-    
+
     // The following is a special case for children.
     'children': {
         1: [4, 5] // 5 may even be a child of 4
@@ -110,7 +110,7 @@ JSON is easy to parse and generate, and is already supported by most languages. 
             AND level IN ('GP', 'P');
 {% endhighlight %}
 
-Nested sets work if writes are low, since it is write-heavy, and reading is fast. 
+Nested sets work if writes are low, since it is write-heavy, and reading is fast.
 
 
 

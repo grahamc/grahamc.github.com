@@ -25,26 +25,26 @@ echo  buildRequest('foo/bar', 'GET', $parameters, 'myApiKey', $secret);
  */
 function buildRequest($endPoint, $method, $parameters, $apiKey,
     $apiSecret) {
-    
+
     // Add the required parameters by the API endpoint
     $parameters['timestamp']    = time();
     $parameters['api_key']      = $apiKey;
     $parameters['nonce']        = uniqid();
-    
+
     // Sort the parameters alphabetically by key
     ksort($parameters);
-    
+
     // Generate the signature using HMAC
     // (hash-based message authentication code)
     $signature_base = http_build_query($parameters)
                     . ':' . $method . ':' . $endPoint;
     $signature = hash_hmac('sha256', $signature_base, $apiSecret);
     $parameters['signature'] = $signature;
-    
+
     $query = http_build_query($parameters);
-    
+
     $url = 'https://api.nationalfield.org/' . $endPoint . '?' . $query;
-    
+
     return $url;
 }
 

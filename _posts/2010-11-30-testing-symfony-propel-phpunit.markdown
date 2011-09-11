@@ -63,7 +63,7 @@ ini_set('display_errors', true);
     processIsolation="false"
     syntaxCheck="true"
     bootstrap="test/bootstrap.php">
-    
+
     <testsuites>
         <testsuite name="Unit Tests">
             <directory>test/unit/</directory>

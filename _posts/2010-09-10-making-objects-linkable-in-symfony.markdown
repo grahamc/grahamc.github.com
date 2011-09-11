@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Making Objects Linkable in symfony
 disqus_id: b2b7a6a0ac85a92f187213879176a1c7
@@ -23,7 +23,7 @@ then used the `__toString()` method on the object for the link text.
 /**
  * Makes an object easy to link to by passing it to the
  * linkableLink helper
- * 
+ *
  * @author Graham Christensen <graham@grahamc.com>
  */
 interface NF_Linkable {
@@ -32,13 +32,13 @@ interface NF_Linkable {
 	 * @return string The route
 	 */
 	public function getRoute();
-	
+
 	/**
 	 * Get route parameters
 	 * @return array of route parameters
 	 */
 	public function getParameters();
-	
+
 	/**
 	 * Get the text to use as link-text
 	 * @return string
@@ -57,7 +57,7 @@ a link, nice and simply. The helper is fairly straightforward too:
 {% highlight php %}
 <?php
 /**
- * Link to any object extending NF_Linkable 
+ * Link to any object extending NF_Linkable
  * @param NF_Linkable $object
  * @return string
  * @author Graham Christensen <graham@grahamc.com>
@@ -65,7 +65,7 @@ a link, nice and simply. The helper is fairly straightforward too:
 function linkableLink(NF_Linkable $object) {
 	$url = $object->getRoute() . '?';
 	$url .= http_build_query($object->getParameters());
-	
+
 	return link_to($object, $url);
 }
 ?>
@@ -84,7 +84,7 @@ simply implement the interface's methods:
 
 /**
  * A group object which is linkable using linkableLink
- * 
+ *
  * @author Graham Christensen <graham@grahamc.com>
  */
 class FieldGroup extends BaseFieldGroup
@@ -96,7 +96,7 @@ class FieldGroup extends BaseFieldGroup
 	public function getRoute() {
 		return '@group_show';
 	}
-	
+
 	/**
 	 * Get the route's parameters for building the final URL
 	 * @return array
@@ -104,7 +104,7 @@ class FieldGroup extends BaseFieldGroup
 	public function getParameters() {
 		return array('id' => $this->getId());
 	}
-	
+
 	/**
 	 * Get the text to appear between in <a>text</a> tags
 	 * @return string
@@ -126,7 +126,7 @@ To then use this in your codebase, write a simple view:
 {% highlight php %}
 <?php
 // Get a FieldGroup just for the example
-$group = FieldGroupPeer::doSelectOne(new Criteria()); 
+$group = FieldGroupPeer::doSelectOne(new Criteria());
 
 use_helper('Linkable');
 echo linkableLink($group);

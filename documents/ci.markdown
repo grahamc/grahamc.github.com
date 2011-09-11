@@ -66,7 +66,7 @@ This is possibly the easiest step to take, and is definitely the least scary.
 > - Suboptimal code
 > - Overcomplicated expressions
 > - Unused parameters, methods, properties
-> 
+>
 > -- [PHPMD](http://phpmd.org)
 
 PHP Mess Detector is a great way to automatically detect potential problem spots in your source. While this information is fantastic, for teams with problematic code it is only telling you what you already know.

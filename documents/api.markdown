@@ -31,7 +31,7 @@ Caching can be implemented using the existing HTTP protocol through the followin
 ### View
 When developing an API, almost all of the output formatting can be done automatically, with no manual intervention on how the data should be returned.
 
-By using a "Unified View Layer" we could very quickly develop API endpoints by simply returning an array of data from the controller. The layer would automatically take that data and convert it into any of the output formats. 
+By using a "Unified View Layer" we could very quickly develop API endpoints by simply returning an array of data from the controller. The layer would automatically take that data and convert it into any of the output formats.
 
 Through automatic generation of this data we are guaranteed valid results and very few inconsistencies in how one method or another outputs their data. This would also reduce redundant work to implement each output format for each endpoint.
 
@@ -59,7 +59,7 @@ API keys will be unique on a per-application basis and non-unique across clients
 ### 3rd Party Apps (incorporating them into our system)
 There are two basic approaches proposed for incorporating 3rd-party applications into our system.
 
-- `FBML`-like syntax 
+- `FBML`-like syntax
 - Using `iframes`
 
 By using a `FBML` syntax we may be able to regulate style a little bit more rigorously, but we would also need to fashion a templating engine, and javascript would effectively be out of the question.
@@ -99,27 +99,27 @@ $secret);
  */
 function buildRequest($client, $endPoint, $method, $parameters, $apiKey,
     $apiSecret) {
-    
+
     // Add the required parameters by the API endpoint
     $parameters['timestamp']    = time();
     $parameters['api_key']      = $apiKey;
     $parameters['nonce']        = uniqid();
-    
+
     // Sort the parameters alphabetically by key
     ksort($parameters);
-    
+
     // Generate the signature using HMAC
     // (hash-based message authentication code)
     $signature_base = http_build_query($parameters)
                     . ':' . $method . ':' . $endPoint . ':' . $client;
     $signature = hash_hmac('sha256', $signature_base, $apiSecret);
     $parameters['signature'] = $signature;
-    
+
     $query = http_build_query($parameters);
-    
+
     $url = 'https://' . $client . 'api.nationalfield.org/'
         . $endPoint . '?' . $query;
-    
+
     return $url;
 }
 ?>

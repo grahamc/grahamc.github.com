@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: Forcing SSL and HTTPS with Redirects on Symfony 1.2, 1.3
 disqus_id: 133 http://iamgraham.net/?p=133
@@ -12,7 +12,7 @@ to secure modules.
 
 The code I wrote It is based off of
 [Say No To Flash](http://www.saynotoflash.com/archives/symfony-1-2-redirect-specific-modules-and-actions-to-https-ssl/)'s
-filter that they wrote, however I was generally displeased with their method. 
+filter that they wrote, however I was generally displeased with their method.
 t loops over the list twice, and is generally a garble of logic that is a
 little bit hard to understand, and could probably be done better.
 
@@ -93,13 +93,13 @@ class sslFilter extends sfFilter {
 
         // Get a list of all the modules to check for
         $modules = sfConfig::get('app_ssl_modules');
-        
+
         // Set the modules variable to an array, this is
         // if it's not configured for this particular environment.
         if (!is_array($modules)) {
             $modules = array();
         }
-        
+
         // Store the module name and action name into variables
         // to simplify the code, and reduce function calls.
         $module_name = $context->getModuleName();

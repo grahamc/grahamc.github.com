@@ -1,4 +1,4 @@
---- 
+---
 layout: post
 title: What Are Your Basic Living Needs?
 published: false
@@ -70,4 +70,3 @@ Coming up with a solid list is the beginning of my project.
 - Black socks
 - Black belt
 - Collared, Nice shirt
-
