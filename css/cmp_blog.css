@@ -70,7 +70,7 @@ body {
 	width: 100%;
 	padding-top: 40px;
 	padding-bottom: 30px;
-    
+
 }
 
 h2 {
@@ -82,7 +82,7 @@ h3 {
     color: #222;
     font: normal normal normal 24px/1.5em Georgia, serif;
     font-weight: bold;
-    
+
     font-family: 'DINPro';
     font-weight: bolder;
 }
@@ -91,7 +91,7 @@ h4 {
     margin: 1.8em 0px 0.8em;
     color: #222;
     font: normal normal normal 20px/1.5em Georgia, serif;
-    
+
     font-family: 'DINPro';
     font-weight: lighter;
 }
@@ -100,7 +100,7 @@ h5 {
     margin: 1.8em 0px 0.8em;
     color: #222;
     font: normal normal normal 16px/1.5em Georgia, serif;
-    
+
     font-family: 'DINPro';
     font-weight: lighter;
 }
@@ -189,7 +189,7 @@ a.homelink:hover * {
 }
 
 #content ul li, #content ol li {
-    font: normal normal normal 14px/1.5em Arial, sans-serif;    
+    font: normal normal normal 14px/1.5em Arial, sans-serif;
     color: #555;
 }
 
@@ -256,7 +256,7 @@ a.homelink:hover * {
 	border-top-left-radius: 3px 3px;
 	border-top-right-radius: 3px 3px;
 	border: 1px solid white;
-	
+
     color: #555;
     font: normal normal normal 12px/1.5em Georgia, serif;
     padding: 20px;

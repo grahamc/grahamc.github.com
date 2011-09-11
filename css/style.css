@@ -9,15 +9,15 @@ body {
 #container {
 	margin-left: auto;
 	margin-right: auto;
-	width: 940px;
 	padding: 10px 0px 40px;
+	width: 940px;
 }
 
 #masthead {
-	width: 100%;
-	padding-top: 40px;
 	padding-bottom: 30px;
-    
+	padding-top: 40px;
+	width: 100%;
+
 }
 
 h2 {
@@ -25,57 +25,57 @@ h2 {
 }
 
 h3 {
-    margin: 1.8em 0px 0.8em;
+
     color: #222;
-    font: normal normal normal 24px/1.5em Georgia, serif;
-    font-weight: bold;
-    
     font-family: 'DINPro';
+    font-weight: bold;
     font-weight: bolder;
+    font: normal normal normal 24px/1.5em Georgia, serif;
+    margin: 1.8em 0px 0.8em;
 }
 
 h4 {
-    margin: 1.8em 0px 0.8em;
+
     color: #222;
-    font: normal normal normal 20px/1.5em Georgia, serif;
-    
     font-family: 'DINPro';
     font-weight: lighter;
+    font: normal normal normal 20px/1.5em Georgia, serif;
+    margin: 1.8em 0px 0.8em;
 }
 
 h5 {
-    margin: 1.8em 0px 0.8em;
+
     color: #222;
-    font: normal normal normal 16px/1.5em Georgia, serif;
-    
     font-family: 'DINPro';
     font-weight: lighter;
+    font: normal normal normal 16px/1.5em Georgia, serif;
+    margin: 1.8em 0px 0.8em;
 }
 
 #masthead h1, #masthead a {
+	color: #222;
 	font-family: 'Myriad Pro', Myriad, 'Trebuchet MS', Arial, sans-serif;
-	text-transform: uppercase;
-	text-shadow: white 1px 2px;
 	font-size: 40px;
 	margin-bottom: 0px;
-	color: #222;
 	text-decoration: none;
+	text-shadow: white 1px 2px;
+	text-transform: uppercase;
 }
 
 #masthead p {
-	font: italic normal normal 14px/1em Georgia, serif;
 	color: #999999;
+	font: italic normal normal 14px/1em Georgia, serif;
 	margin-top: 0px;
 }
 
 #content {
-	width: 610px;
 	padding: 0px 0px 40px;
+	width: 610px;
 }
 
 a {
-/*    text-transform: uppercase; */
     text-decoration: none;
+/*    text-transform: uppercase; */
 }
 
 a:link, a:visited {
@@ -83,8 +83,8 @@ a:link, a:visited {
 }
 
 a:hover {
-    text-decoration: underline;
     color: #A8B326;
+    text-decoration: underline;
 }
 
 #content div.entry {
@@ -112,8 +112,8 @@ a.homelink:hover * {
 }
 
 #content p {
-    font: normal normal normal 14px/1.5em Arial, sans-serif;
     color: #555;
+    font: normal normal normal 14px/1.5em Arial, sans-serif;
     margin-bottom: 1.5em;
 }
 
@@ -122,9 +122,9 @@ a.homelink:hover * {
 }
 
 #content ul, #content ol {
+    margin-bottom: 10px;
     margin-left: 15px;
     padding-left: 30px;
-    margin-bottom: 10px;
 }
 
 #content ul li {
@@ -136,8 +136,8 @@ a.homelink:hover * {
 }
 
 #content ul li, #content ol li {
-    font: normal normal normal 14px/1.5em Arial, sans-serif;    
     color: #555;
+    font: normal normal normal 14px/1.5em Arial, sans-serif;
 }
 
 .homedate {
@@ -149,9 +149,9 @@ a.homelink:hover * {
     border-bottom: 0px solid #E6E6E6;
     border-top: 1px solid #E6E6E6;
     color: #868686;
-    padding: 10px 0px;
-    margin-top: 10px;
     font: normal normal normal 12px/1.5em Arial, sans-serif;
+    margin-top: 10px;
+    padding: 10px 0px;
 }
 
 #content div.entry div.completer span.date {
@@ -163,9 +163,9 @@ a.homelink:hover * {
     border-bottom: 40px solid #E6E6E6;
     border-top: 1px solid #E6E6E6;
     border-width: 1px 0px 4px;
-    padding: 10px 15px;
-    font-size: 11px;
     clear: both;
+    font-size: 11px;
+    padding: 10px 15px;
 }
 
 #content div.navigation a {
@@ -185,25 +185,25 @@ a.homelink:hover * {
 
 
 #footer {
-    width: 940px;
     background: #CCC;
     border-top: 1px solid #BBB;
+    color: #777;
+    font: italic normal normal 14px/normal Georgia, serif;
     min-height: 40px;
     padding: 10px 0px 0px 10px;
-    font: italic normal normal 14px/normal Georgia, serif;
-    color: #777;
+    width: 940px;
 }
 
 #sidebar {
+
 	background: #FEFEFE url(/images/bg-gradient.png) repeat-x;
-	float: right;
-	width: 258px;
 	border-bottom-left-radius: 3px 3px;
 	border-bottom-right-radius: 3px 3px;
 	border-top-left-radius: 3px 3px;
 	border-top-right-radius: 3px 3px;
 	border: 1px solid white;
-	
+	float: right;
+	width: 258px;
     color: #555;
     font: normal normal normal 12px/1.5em Georgia, serif;
     padding: 20px;
@@ -220,14 +220,14 @@ a.homelink:hover * {
 
 #sidebar a.rss {
     color: #C63F00 !important;
-    text-decoration: none !important;
     font: normal normal bold 14px/normal Georgia, serif !important;
+    text-decoration: none !important;
 }
 
 #sidebar strong {
+	color: #555;
 	font-family: Georgia, serif;
 	font-weight: thick;
-	color: #555;
 }
 
 blockquote {
@@ -260,27 +260,26 @@ blockquote p {
 }
 
 #content div.entry img {
-  max-width: 100%;
   display: block;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px;
+  max-width: 100%;
 }
 
 
 .bigimg {
-  max-width: 610px !important;
-  min-width: 610px !important;
-  width: 610px !important;
+  display: normal !important;
+  margin-bottom: 20px !important;
   margin-left: -20px !important;
   margin-right: -20px !important;
   margin-top: -20px !important;
-  margin-bottom: 20px !important;
-  display: normal !important;
+  max-width: 610px !important;
+  min-width: 610px !important;
+  width: 610px !important;
 }
 
 .homepage {
-    margin-top: 10px !important;
     margin-bottom: -20px !important;
+    margin-top: 10px !important;
 }
-
