@@ -6,6 +6,7 @@ excerpt:
     Keeping ~/ in a .git repository works for me, but I also wanted to version
     my .ssh/ directory, and my PGP files. Since I share my dotfiles, they
     obviously cannot be in the same repository.
+disqus_id: c79cc26171c2ff959ffc3356d510e690
 ---
 
 If you were to
