@@ -20,7 +20,7 @@ them to be 0700, but next time you push it'll store new files too permissively.
 
 The solution is fairly easy, but it took a little bit of googling:
 
-`git init --bare --shared=0700 secure.git`.
+`git init --bare --shared=0700 secure.git`
 
 This causes all files in this repository to only be readable by the user who
 owns the directory. If you want your files to be secure, make sure you
