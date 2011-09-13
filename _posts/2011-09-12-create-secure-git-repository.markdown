@@ -2,6 +2,7 @@
 title: "How to Create a Secure Git Repository on a Shared Server"
 layout: post
 
+excerpt: "Initialize a git repository only your user can access."
 disqus_id: f84b8c6a8d9e515416f78cfe493e8813
 ---
 
@@ -25,3 +26,6 @@ This causes all files in this repository to only be readable by the user who
 owns the directory. If you want your files to be secure, make sure you
 initialize your repository with this command, otherwise everyone will be able
 to read your PGP keys.
+
+Now all you need to do is add this repository as a remote (`git remote add`)
+and carry on your way.
