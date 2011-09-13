@@ -5,7 +5,7 @@ ribbon: false
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <!-- _l: base -->
-        <title>{{ page.title }}</title>
+        <title>{% if page.title %}{{page.title}} - {% endif %}Graham Christensen</title>
         <meta name="google-site-verification" content="HvOMOXBefNLvJCYEGHm9ulUQsdgB59PYXjlsQe5H844" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="robots" content="index, follow" />
