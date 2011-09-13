@@ -27,5 +27,6 @@ owns the directory. If you want your files to be secure, make sure you
 initialize your repository with this command, otherwise everyone will be able
 to read your PGP keys.
 
-Now all you need to do is add this repository as a remote (`git remote add`)
-and carry on your way.
+Now, pretending your server is your-ssh-server.com, and the username is user,
+you would add it as a remote to your repository as such:
+`git remote add origin user@your-ssh-server.com:path/to/secure.git`
