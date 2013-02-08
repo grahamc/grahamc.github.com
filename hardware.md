@@ -42,8 +42,18 @@ monitor.
 ## KeepWinging RFID Reader
 
 ![RFID Reader](/resources/hardware/rfid-printing.jpg)
+
 ![RFID Reader](/resources/hardware/rfid-fit.jpg)
+
 ![RFID Reader](/resources/hardware/rfid-demo.jpg)
+
+<iframe
+    width="560"
+    height="315"
+    src="http://www.youtube-nocookie.com/embed/Zc9uiyarHtY?rel=0"
+    frameborder="0"
+    allowfullscreen="allowfullscreen">
+</iframe>
 
 KeepWinging is an annual wing-eating competition which involves elaborate data
 collection of food consumption. These RFID readers were built to track each
@@ -51,6 +61,8 @@ competer's wing eating. Included internally are 32 blue LEDs, an Arduino
 microprocessor, and an ID-12 RFID reader.
 
 [Case source](https://github.com/grahamc/openscad/blob/master/keepwinging.scad)
+
+[Arduino Source](https://github.com/grahamc/keepwinging2013);
 
 
 
