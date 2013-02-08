@@ -62,7 +62,5 @@ microprocessor, and an ID-12 RFID reader.
 
 [Case source](https://github.com/grahamc/openscad/blob/master/keepwinging.scad)
 
-[Arduino Source](https://github.com/grahamc/keepwinging2013);
-
-
+[Arduino Source](https://github.com/grahamc/keepwinging2013)
 
