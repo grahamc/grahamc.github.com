@@ -1,0 +1,27 @@
+---
+layout: base
+---
+<!-- _l: default -->
+{% include sidebar.html %}
+
+<!-- Begin Content -->
+<div id="content">
+  <div class="entry">
+    <h2>Article Archive</h2>
+  <ul>
+  {% for post in site.posts %}
+    {% if post.hold %}
+    {% else %}
+    <li>
+      <a href="{{ post.url }}" class="homelink">
+        <strong>{{ post.title }}</strong>
+          <span class="homedate">
+              {{ post.date | date: "%B %d %Y" }}
+          </span>
+        </a>
+        </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+</div>
+</div>
