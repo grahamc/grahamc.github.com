@@ -88,13 +88,27 @@ a number of people, and the MySQL manual, I realized I should run
 
 {% highlight sql %}
 USE 'dbname';
-CHECK TABLE `tablename` FAST QUICK;
+CHECK TABLE `tablename` FAST QUICK\G
 {% endhighlight %}
 
 > `CHECK TABLE` will indicate what is wrong with the table.
 
 In this case, the real issue was very simply a case of the table not being
 closed properly, which `CHECK TABLE` takes care of automatically.
+
+What MySQL outputted:
+
+{% highlight text %}
+    Table: dbname.tablename
+       Op: check
+ Msg_type: warning
+ Msg_text: 4 clients are using or haven't closed the table properly
+
+    Table: dbname.tablename
+       Op: check
+ Msg_type: status
+ Msg_text: OK
+{% endhighlight %}
 
 From the documentation of
 [MySQL's CHECK TABLE](http://dev.mysql.com/doc/refman/5.1/en/check-table.html):
