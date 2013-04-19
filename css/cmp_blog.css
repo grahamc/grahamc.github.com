@@ -336,6 +336,10 @@ blockquote p {
     margin-bottom: -20px !important;
 }
 
+.highlight pre {
+  white-space: pre-wrap;
+}
+
 .dsq-avatar {
     min-width: 32px;
     width: 32px !important;
