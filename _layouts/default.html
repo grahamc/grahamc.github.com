@@ -4,43 +4,48 @@ layout: base
 <!-- _l: default -->
 <!-- Begin Sidebar -->
 <div id="sidebar">
-	<p><strong>Graham Christensen</strong> is a home-brew
-		scientist, hardware guy, and a php/ruby/python developer. He
-		loves to dabble in everything he can get himself into.
-		Lately that means the <strong>Arduino platform</strong>
-        and <strong>data</strong>.</p>
-	<p><a href="/feed" class="rss">Subscribe to RSS</a></p>
-	<p><strong>E-Mail:</strong> graham<span>@</span>grahamc.com<br />
-		<strong>Phone:</strong> 407-670-9980</p>
-	<p>
-		<strong>GitHub:</strong> <a href="http://github.com/grahamc">github.com/grahamc</a><br />
-		<strong>Twitter:</strong> <a href="http://twitter.com/itrebal">@itrebal</a></p>
+  <p><strong>Graham Christensen</strong> is a home-brew
+    scientist, hardware guy, and a ruby/php developer. He
+    loves to dabble in everything he can get himself into.
+    Lately that means the <strong>system administration</strong>
+    and <strong>automation</strong>.</p>
+    <p>Graham currently works for
+      <a href="https://www.zippykid.com/">ZippyKid</a>, working to automate the
+      infrastructure, and making your sites "zippier." If you like what I talk
+      about, I want to hire you. If you disagree or are offended, they are mine,
+      not my employer's.</p>
+  <p><a href="/feed" class="rss">Subscribe to RSS</a></p>
+  <p><strong>E-Mail:</strong> graham<span>@</span>grahamc.com<br />
+    <strong>Phone:</strong> 407-670-9980</p>
+  <p>
+    <strong>GitHub:</strong> <a href="http://github.com/grahamc">github.com/grahamc</a><br />
+    <strong>Twitter:</strong> <a href="http://twitter.com/grhmc">@grhmc</a></p>
 </div>
 <!-- End Sidebar -->
 
 <!-- Begin Content -->
 <div id="content">
-	{% if paginator.posts %}
-    	{% for post in paginator.posts %}
-			{% if post.hold %}
-			{% else %}
-				{% include normal_page.html %}
-			{% endif %}
-    	{% endfor %}
-	{% else %}
-		{{ content }}
-	{% endif %}
+  {% if paginator.posts %}
+      {% for post in paginator.posts %}
+      {% if post.hold %}
+      {% else %}
+        {% include normal_page.html %}
+      {% endif %}
+      {% endfor %}
+  {% else %}
+    {{ content }}
+  {% endif %}
 
-	{% if paginator.next_page or paginator.previous_page %}
-	<div class="navigation">
-		{% if paginator.previous_page %}
-		<a href="/page{{ paginator.previous_page }}" class="newer">« Newer Entries</a>
-		{% endif %}
+  {% if paginator.next_page or paginator.previous_page %}
+  <div class="navigation">
+    {% if paginator.previous_page %}
+    <a href="/page{{ paginator.previous_page }}" class="newer">« Newer Entries</a>
+    {% endif %}
 
-		{% if paginator.next_page %}
-		<a href="/page{{ paginator.next_page }}" class="older">Older Entries »</a>
-		{% endif %}
-		<div class="clear"></div>
-	</div>
-	{% endif %}
+    {% if paginator.next_page %}
+    <a href="/page{{ paginator.next_page }}" class="older">Older Entries »</a>
+    {% endif %}
+    <div class="clear"></div>
+  </div>
+  {% endif %}
 </div>
