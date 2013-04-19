@@ -1,7 +1,7 @@
 ---
 title: 'How to Create a Super Nerdy Super Bowl Party That Everyone Will Love or: RFID + 1,000 Chicken Wings (Wait... What?)'
 layout: post
-bigimg: 'http://a5.sphotos.ak.fbcdn.net/hphotos-ak-ash1/hs897.ash1/180547_10150379207205371_731005370_16747401_756589_n.jpg'
+bigimg: '/resources/2011-02-11-soldering.png'
 ---
 To be quite frank, I don't care about football. I didn't even know who was playing in the Super Bowl until the day before when two people simultaneously expressed their excitement for _insert team here_ to kick _the other team_'s ass. Unfortunately I was being dragged into a party, but it wasn't without cause - we were going to eat 1,000 chicken wings before the night was out, and only 25 people were there to do it. We called it [KeepWinging](http://keepwinging.com).
 
