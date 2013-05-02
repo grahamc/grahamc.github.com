@@ -8,7 +8,7 @@ layout: post
 - 1 garlic clove, chopped
 - 1 small onion, chopped
 - 1 28oz can Progresso skinned tomatoes, chopped
-- 1 1/2 tsop salt
+- 1 1/2 tsp salt
 - 1 1/2 tsp Basil
 - 1/8 tsp crushed red pepper
 - 4 oz tomato paste
