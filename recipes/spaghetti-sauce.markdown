@@ -11,13 +11,13 @@ layout: post
 - 1 1/2 tsop salt
 - 1 1/2 tsp Basil
 - 1/8 tsp crushed red pepper
-- 4oz tomato paste
+- 4 oz tomato paste
 
 ### Directions
 
 Saute: Onions and Garlic in Oil / butter.
 
-Add remaining ingredients.
+Add remaining ingredients, except for tomato paste.
 
 Cook for 10 minutes.
 
