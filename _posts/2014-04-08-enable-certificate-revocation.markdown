@@ -3,7 +3,7 @@ layout: post
 title: Enable certificate revocation in Chrome
 ---
 
-Given the latest [Heartbleed vulnerability][http://heartbleed.com] it is a good
+Given the latest [Heartbleed vulnerability](http://heartbleed.com) it is a good
 time to have Chrome check for SSL revocation.
 
 ### How-To
