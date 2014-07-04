@@ -1,6 +1,9 @@
 paginate: 5
 paginator.per_page: 5
-pygments: true
+highlighter: pygments
 permalink: /blog/:title
-exclude: CNAME, Gemfile, Gemfile.lock, *.sw*
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
 
