@@ -16,7 +16,7 @@ projects I've undertaken.
  - [PCB Source](https://github.com/grahamc/bigboard-eagle)
  - [Arduino Source](https://github.com/grahamc/bigboard-arduino)
 
-![bigboard-board](/resources/hardware/bigboard-board.jpg)
+![bigboard-board](/resources/hardware/bigboard-boards.jpg)
 ![bigboard-front](/resources/hardware/bigboard-front.jpg)
 ![bigboard-back](/resources/hardware/bigboard-back.jpg)
 
