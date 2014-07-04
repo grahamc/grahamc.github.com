@@ -9,35 +9,31 @@ As a through-and-through "Maker" I love to experiment and build devices and
 trinkets which may not serve any more purpose than a puzzle. Here a few such
 projects I've undertaken.
 
-## Shaving Dish
+## BigBoard
+ - Another PCB design (much simpler than Choreminder)
+ - Used three large 7-segment displays
+ - Learned assembly and case design techniques
+ - [PCB Source](https://github.com/grahamc/bigboard-eagle)
+ - [Arduino Source](https://github.com/grahamc/bigboard-arduino)
 
-![Shaving Dish](/resources/hardware/dish-printed.jpg)
+![bigboard-board](/resources/hardware/bigboard-board.jpg)
+![bigboard-front](/resources/hardware/bigboard-front.jpg)
+![bigboard-back](/resources/hardware/bigboard-back.jpg)
 
-This was one of my first and more basic 3D prints, a dish to hold my razor and
-replacement blades.
+## ChoreMinder
 
-[Designed in OpenSCAD](https://github.com/grahamc/openscad/blob/master/dish.scad)
+ - Designed a circuit board using EAGLE
+ - Had the board fabricated
+ - Sourced components and assembled the board
+ - Learned how to communicate over SPI and serial on AVRs without any Ardunio
+   libraries
+ - [PCB source](https://github.com/grahamc/choreminder-eagle)
+ - [Updated code without any Arduino src](https://github.com/grahamc/choreminder-avr)
+ - [Original Arduino source](https://github.com/grahamc/choreminder)
 
-## Soap Dish
-
-![Soap Dish](/resources/hardware/soap-dish.jpg)
-
-An early print, this soap dish features angled risers, preventing water from
-ruining the soap.
-
-[Designed in OpenSCAD](https://github.com/grahamc/openscad/blob/master/soap%20dish.scad)
-
-## Headphones Clip
-
-![Headphone Monitor Clip](/resources/hardware/headphone-clip.jpg)
-
-A clip for supporting my headphones behind my monitor. Recently expanded this
-clip to hold USB-Micro, USB-Mini, and USB-B cables neatly coiled behind my
-monitor.
-
-[Headphones Source](https://github.com/grahamc/openscad/blob/master/headphones.scad)
-
-[USB-B Cabe Hook Source](https://github.com/grahamc/openscad/blob/master/cable-hook-usb-b.scad)
+![raw circuit boards](/resources/hardware/choreminder-boards.jpg)
+![populated circuit](/resources/hardware/choreminder-populated.jpg)
+![completed project](/resources/hardware/choreminder-completed.jpg)
 
 ## KeepWinging RFID Reader
 
@@ -63,4 +59,34 @@ microprocessor, and an ID-12 RFID reader.
 [Case source](https://github.com/grahamc/openscad/blob/master/keepwinging.scad)
 
 [Arduino Source](https://github.com/grahamc/keepwinging2013)
+
+## Soap Dish
+
+![Soap Dish](/resources/hardware/soap-dish.jpg)
+
+An early print, this soap dish features angled risers, preventing water from
+ruining the soap.
+
+[Designed in OpenSCAD](https://github.com/grahamc/openscad/blob/master/soap%20dish.scad)
+
+## Shaving Dish
+
+![Shaving Dish](/resources/hardware/dish-printed.jpg)
+
+This was one of my first and more basic 3D prints, a dish to hold my razor and
+replacement blades.
+
+[Designed in OpenSCAD](https://github.com/grahamc/openscad/blob/master/dish.scad)
+
+## Headphones Clip
+
+![Headphone Monitor Clip](/resources/hardware/headphone-clip.jpg)
+
+A clip for supporting my headphones behind my monitor. Recently expanded this
+clip to hold USB-Micro, USB-Mini, and USB-B cables neatly coiled behind my
+monitor.
+
+[Headphones Source](https://github.com/grahamc/openscad/blob/master/headphones.scad)
+
+[USB-B Cabe Hook Source](https://github.com/grahamc/openscad/blob/master/cable-hook-usb-b.scad)
 
