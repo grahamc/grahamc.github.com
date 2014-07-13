@@ -1,6 +1,7 @@
 paginate: 5
 paginator.per_page: 5
 highlighter: pygments
+markdown: kramdown
 permalink: /blog/:title
 exclude:
   - CNAME
