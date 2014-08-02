@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Packer: Create AMI with EBS Volumes with VolumeType
+title: Packer - Create AMI with EBS Volumes with VolumeType
 ---
 
 When creating an AMI through Packer, you're able to describe what type of
