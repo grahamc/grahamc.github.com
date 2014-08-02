@@ -20,7 +20,7 @@ It is recommended to start `device_name` at `sde`.
 
 ## Example
 
-```json
+{% highlight json %}
 {
   "builders": [{
     "ami_block_device_mappings": [
@@ -44,5 +44,5 @@ It is recommended to start `device_name` at `sde`.
     ]
   }]
 }
-```
+{% endhighlight %}
 
