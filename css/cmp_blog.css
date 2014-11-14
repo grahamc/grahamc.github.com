@@ -448,3 +448,7 @@ blockquote p {
 	font-style: normal;
 }
 */
+
+code {
+  word-wrap: break-word;
+}
