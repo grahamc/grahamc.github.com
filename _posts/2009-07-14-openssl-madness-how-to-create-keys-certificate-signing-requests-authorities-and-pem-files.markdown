@@ -86,7 +86,7 @@ small. Paying for a CA can be cheap ($20), easy, quick, and comes with
 browser-recognition, which is generally important for public websites;
 especially commercial ones.
 
-**My advise:** Self-sign your certificates for personal things, and pay for a
+**My advice:** Self-sign your certificates for personal things, and pay for a
 certificate if its public and important.
 
 If you'd like to pay for someone to sign your certificates, do some research
