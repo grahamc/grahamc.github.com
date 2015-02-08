@@ -4,7 +4,9 @@ title: Docker isn't so bad.
 ---
 
 Below are some notes to the team at [Clarify](http://clarify.io) in response
-to this [flame bait](http://iops.io/blog/docker-hype/).
+to this [flame bait](http://iops.io/blog/docker-hype/). It is worth noting that
+Docker is not perfect, and there are valid concerns and complaints. However,
+none of the issues I've come across have been show-stoppers.
 
 ### Dockerfile
 
