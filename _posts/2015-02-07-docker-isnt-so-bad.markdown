@@ -1,3 +1,8 @@
+---
+layout: post
+title: Docker isn't so bad.
+---
+
 Below are some notes to the team at [Clarify](http://clarify.io) in response
 to this [flame bait](http://iops.io/blog/docker-hype/).
 
