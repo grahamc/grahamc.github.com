@@ -1,27 +1,27 @@
 ---
 layout: default
 ---
-<!-- _l: post -->
-<div class="entry">
+<article>
+  <header>
+    <h2>
+        {{ page.title }}
+    </h2>
+    <p>
+      posted on {{ page.date | date: "%B %d %Y" }}
+    </p>
     {% if page.bigimg %}
-    <img src="{{ page.bigimg }}" class="bigimg" />
-    <br />
-    {% else %}
-    {% if page.vimeo %}
-            <iframe
-                src="http://player.vimeo.com/video/{{ page.vimeo }}"
-                width="600"
-                height="340"
-                class="bigimg"
-                frameborder="0"></iframe>
+    <img    src="{{ page.bigimg }}"
+            alt="{{ page.title }}"
+            class="bigimg homepage" />
+    {% elsif page.vimeo %}
+    <iframe
+        src="http://player.vimeo.com/video/{{ page.vimeo }}"
+        width="600"
+        height="340"
+        class="bigimg homepage"
+        frameborder="0"></iframe>
     {% endif %}
-    {% endif %}
-
-
-    <h2>{{ page.title }}</h2>
-    {{ content }}
-    <div class="completer">
-        posted on <span class="date">{{ page.date | date: "%B %d %Y" }}</span>
-    </div>
-</div>
+  </header>
+  {{ content }}
+</article>
 

@@ -5,21 +5,21 @@ bigimg: '/resources/2013-08-30-beanstalk-jobs.png'
 ---
 
 Sometimes I need to delete lots of jobs from my beanstalk tube. In this
-particular case, I had mistakenly added 3x the jobs every day for the last few
-weeks. These jobs in the `snitch.site` tube is how ZippyKid keeps track of what
-versions of wordpress our customers are using, ensures their configuration is
-up to date, and other general housekeeping tasks.
+particular case, I added 3 `snitch.site` jobs per site every day for the last
+few weeks. These jobs are how ZippyKid performs maintenance on Customer
+websites. Snitch reports the WordPress version in use, as well as updating
+ZippyKid specific configuration.
 
-Since we were triple queueing the jobs, it resulted in new sites not getting
-updated in our client inventory system. These weren't really causing issues,
-but we definitely noticed something was strange. I stumbled across this graph
-of the `snitch.site` tube, and that explained it.
+Since we were triple queueing each site, we weren't able to keep up with the
+work. New sites were not getting updated in our client inventory system. No
+customers saw any issues, but our internal status portal's data was stale.
+I stumbled across this graph of the snitch.site tube, and that explained it.
 
-Now, Beanstalk doesn't have a built-in way to clear out jobs en masse, and I
-wasn't particularly interested in using a library to send a few basic commands.
+Now, Beanstalk doesn’t have a built-in way to clear out jobs en masse. I also
+wasn’t particularly interested in using a library to send a few basic commands.
 
-Instead, what I came up with was a fairly concise `expect` script, which only
-uses tools installed on the vast majority of Linux systems:
+Instead, what I came up with was a concise expect script.  The script only uses
+tools installed on the vast majority of Linux systems:
 
 ### The Code
 
@@ -46,14 +46,12 @@ for {set i 1} {$i < [lindex $argv 3]} { incr i 1 } {
 
 ### Usage
 
-{% highlight bash %}
-beanstalk-purge <host> <port> <tube> <count>
-{% endhighlight %}
+    beanstalk-purge <host> <port> <tube> <count>
 
 ### Example
-{% highlight bash %}
-beanstalk-purge 127.0.0.1 11300 snitch.site 35000
-{% endhighlight %}
+
+    beanstalk-purge 127.0.0.1 11300 snitch.site 35000
+
 > Delete the first 35,000 jobs out of the `snitch.site` tube on the beanstalk
 > server located at 127.0.0.1:11300
 

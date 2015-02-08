@@ -6,19 +6,19 @@ title: Packer - Create AMI with EBS Volumes with VolumeType
 When creating an AMI through Packer, you're able to describe what type of
 devices you want to attach to the device.
 
-Using `launch_block_device_mappings` will cause the devices to be mounted for
-the server the AMI will be created from. Using `ami_block_device_mappings` will
+Using `launch_block_device_mappings` will provide the specified devices during
+the AMI configuration. Using `ami_block_device_mappings` will
 attach the devices to the server when it launches.
 
-It is recommended to start `device_name` at `sde`.
+Amazon recommends starting `device_name` at `sde`.
 
-## VolumeTypes
+### VolumeTypes
 
  - `standard`: magnetic disk
  - `gp2`: SSD
  - `io1`: Provisioned IOPS on SSD (requires `iops` to be specified.)
 
-## Example
+### Example
 
 {% highlight json %}
 {

@@ -1,24 +1,140 @@
 ---
-layout: base
+layout: compress
 ---
-<!-- _l: default -->
-{% include sidebar.html %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% if page.title %}{{page.title}} - {% endif %}Graham Christensen</title>
+    <meta name="google-site-verification" content="HvOMOXBefNLvJCYEGHm9ulUQsdgB59PYXjlsQe5H844" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="index, follow" />
+{% if paginator.posts %}
+{% for post in paginator.posts %}
+    <meta http-equiv="refresh" content="0; url={{ post.url }}" />
+{% endfor %}
+{% endif %}
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+    <style type="text/css">
+      body {
+        background-color: rgb(251, 251, 251);
+        color: rgb(65, 65, 65);
+        max-width: 660px;
+        margin: 22px auto 0 auto;
 
-<!-- Begin Content -->
-<div id="content">
-  {% if paginator.posts %}
-      {% for post in paginator.posts %}
-      {% if post.hold %}
+        font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
+        font-size: 18px;
+        line-height: 28px;
+      }
+
+      h1, h2 , h3, h4, h5{
+        color: rgb(75, 75, 75);
+      }
+
+      h1 {
+        line-height: 1.5em;
+        font-size: 1.25em;
+        font-weight: normal;
+      }
+
+      h2 {
+        line-height: 1.25em;
+        font-size: 1.5em;
+        font-weight: normal;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      a, a:visited {
+        color: rgb(65, 110, 210);
+      }
+
+      code {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+        <h1>Graham Christensen</h1>
+    </header>
+
+      {% if paginator.posts %}
       {% else %}
-        {% include normal_page.html %}
+        {{ content }}
       {% endif %}
-      {% endfor %}
-  {% else %}
-    {{ content }}
-  {% endif %}
 
-  <div class="navigation">
-    <a href="/archive" class="older">All Entries »</a>
-    <div class="clear"></div>
-  </div>
-</div>
+    <nav>
+      <h2>Other Articles</h2>
+      <ul>
+      {% for post in site.posts %}
+        {% if post.hold %}
+        {% else %}
+        <li>
+          <a href="{{ post.url }}" class="homelink">
+            {{ post.title }}
+          </a>
+        </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </nav>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        <strong>Graham Christensen</strong> is a home-brew scientist, and a systems
+        guy. He loves to dabble in everything he can get himself into.
+        Lately that means the <strong>Hardware Design</strong>
+        and <strong>automation</strong>.
+      </p>
+
+      <p>
+        Graham wrangles dozens of services at
+        <a href="http//clarify.io">Clarify.io</a>.
+      </p>
+
+      <ul>
+        <li>
+          <strong>GPG Fingerprint:</strong> FE918C3A98C1030F
+        </li>
+        <li>
+          <strong>E-Mail:</strong> graham<span>@</span>grahamc.com<br />
+        </li>
+        <li>
+          <strong>Phone:</strong> 407-670-9980
+        </li>
+        <li>
+          <strong>GitHub:</strong>
+          <a href="http://github.com/grahamc">github.com/grahamc</a>
+        </li>
+        <li>
+          <strong>Twitter:</strong>
+          <a href="http://twitter.com/grhmc">@grhmc</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2015 Graham Christensen. All Rights Reserved.
+        &middot;
+        <a href="/feed" class="rss">Subscribe to RSS</a>
+      </p>
+    </footer>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-25686597-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

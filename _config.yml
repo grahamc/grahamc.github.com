@@ -1,6 +1,6 @@
-paginate: 5
-paginator.per_page: 5
-highlighter: pygments
+paginate: 1
+paginator.per_page: 1
+highlighter: null
 markdown: kramdown
 permalink: /blog/:title
 exclude:

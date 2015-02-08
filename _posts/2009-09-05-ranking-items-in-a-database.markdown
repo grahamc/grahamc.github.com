@@ -18,10 +18,10 @@ the same.
 
 {% highlight mysql %}
 CREATE TABLE `response` (
-	id INT(11) AUTO_INCREMENT NOT NULL,
-	time FLOAT NOT NULL,
-	meta VARCHAR(255),
-	PRIMARY KEY(id)
+  id INT(11) AUTO_INCREMENT NOT NULL,
+  time FLOAT NOT NULL,
+  meta VARCHAR(255),
+  PRIMARY KEY(id)
 );
 {% endhighlight %}
 
@@ -32,10 +32,10 @@ pretty simple, just:
 
 {% highlight mysql %}
 CREATE TABLE `response_ranking` (
-	id INT(11) AUTO_INCREMENT NOT NULL,
-	response_id INT(11) NOT NULL,
-	PRIMARY KEY(id),
-	FOREIGN KEY (response_id) REFERENCES `response` (id)
+  id INT(11) AUTO_INCREMENT NOT NULL,
+  response_id INT(11) NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY (response_id) REFERENCES `response` (id)
 );
 {% endhighlight %}
 

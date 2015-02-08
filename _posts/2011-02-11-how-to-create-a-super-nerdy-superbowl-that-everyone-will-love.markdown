@@ -18,6 +18,7 @@ I had a lot to do in just 48 hours:
 
 ### The Dashboard
 ![The KeepWinging Dashboard](/resources/2011-02-11-dashboard.png)
+
 > Note, this was taken after KeepWinging ended; otherwise the WPH would show a real number.
 
 We wanted a very simple dashboard which would display only the most important stats in our venture to eat 250 chickens worth of buffalo wings. We also wanted it to be live-updating, and give some level of competition between users.
@@ -33,6 +34,7 @@ Each of these items would automatically refresh every second or two, so feedback
 
 ### The Feed
 ![The KeepWinging Feed](/resources/2011-02-11-feed.png)
+
 > The feed would update every second.
 
 Let's face it, the internet loves a good live-updating feed of what is going on. We love that instant feedback of change in our lives, so we couldn't resist building one.
@@ -55,6 +57,7 @@ I also incorporated some simple human feedback: users are used to visual _and _ 
 by having a red and blue LED. When the tag was scanned, the blue light would switch to red. Unfortunately I didn't have a buzzer loud enough to stand a chance at a party, so I removed this part of the feedback. (Yes, I did get complaints that it didn't beep or buzz.)
 
 One note about RFID readers which I learned during this project:
+
 > Since RFID readers use radio frequencies, the number of devices and signals we have going through the airways can cause false-positive matches. These codes would look like `F0000F0000` and were almost always obviously fake.
 >
 > In order to reduce the number of false positives received, it is recommended to try reading the tag twice within a few seconds (I used 2) before it considers it a successful read. This will prevent almost all false positive reads.
@@ -70,6 +73,7 @@ In order to get the tag data from the Arduino to the laptop, I had my brother an
 The code was simple enough: read 10 bytes from the reader, send it along through the USB serial port to my laptop using the Arduino's handy reader.
 
 ![The RFID Process](/resources/2011-02-11-rfid-process.png)
+
 > By having the registered check, setting up a new RFID tag was a snap and nearly problem-free.
 
 That task would perform the registration or the reporting through a very simple RPC API I built. This was no attempt at being RESTful; I just needed to get the thing done.
