@@ -63,12 +63,10 @@ bugs.
  - Setting up a Docker Registry is not "ridiculously complex". We do it, it
    takes 4 configuration options:
 
-    environment ({
-      'STORAGE_PATH'        => '/path/on/disk',
-      'SETTINGS_FLAVOR'     => 'local',
-      'MIRROR_SOURCE'       => 'https://registry-1.docker.io',
-      'MIRROR_SOURCE_INDEX' => 'https://index.docker.io'
-    })
+   - `-e STORAGE_PATH=/path/on/disk`
+   - `-e SETTINGS_FLAVOR=local`
+   - `-e MIRROR_SOURCE=https://registry-1.docker.io`
+   - `-e MIRROR_SOURCE_INDEX=https://index.docker.io`
 
 ### Security
 
