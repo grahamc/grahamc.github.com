@@ -6,7 +6,7 @@ title: Docker isn't so bad.
 Below are some notes to the team at [Clarify](http://clarify.io) in response
 to this [flame bait](http://iops.io/blog/docker-hype/).
 
-# Dockerfile
+### Dockerfile
 
  - Restrictions let you reason about how a system works. It is how Heroku is so
    popular and reliable. Having a smaller API is frequently a good choice.
@@ -18,7 +18,7 @@ to this [flame bait](http://iops.io/blog/docker-hype/).
  - His bit about `$HOME` disappearing is because, I presume, he's never run
    commands outside of a shell...
 
-# Docker cache / layers
+### Docker cache / layers
 
  - It is true that there are some issues with their COW filesystem, and it is a
    bit slow to have many small layers. You'll notice most of our container
@@ -44,7 +44,7 @@ bugs.
    been merged yet. Also, I'm not convinced it is a "poor architectural
    design".
 
-# Docker Hub
+### Docker Hub
 
  - Multiple FROM operations doesn't really make sense. It is saying what FS to
    start with. Merging two would be â€¦ well, near impossible. Multiple
@@ -70,7 +70,7 @@ bugs.
       'MIRROR_SOURCE_INDEX' => 'https://index.docker.io'
     })
 
-# Security
+### Security
 
  - He makes a few good points, but let's not forget about the deluge of
    vulnerabilities that have been discovered over the past year in cornerstones
@@ -79,7 +79,7 @@ bugs.
  - It is true that running inside a linux kernel is more risky than running a
    hypervisor. But, again, we're not running a public code hosting service.
 
-# Containers are not VMs
+### Containers are not VMs
 
  - He seems to really want containers to be a VM.
  - Linux containers are not VMs
@@ -90,7 +90,7 @@ bugs.
    amount of things your container has to worry about is a Good Thing(tm).
  - There are some performance issues
 
-# Docker is unnecessary
+### Docker is unnecessary
 
  - Docker is pretty great for debugging. Having the identical binaries from the
    app code to the interpreter to glibc is really nice. Making "debugging
