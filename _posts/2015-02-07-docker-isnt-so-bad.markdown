@@ -49,7 +49,7 @@ bugs.
 ### Docker Hub
 
  - Multiple FROM operations doesn't really make sense. It is saying what FS to
-   start with. Merging two would be â€¦ well, near impossible. Multiple
+   start with. Merging two would be .. well, near impossible. Multiple
    inheritance is hard enough in a programming language with an extremely
    limited set of possible collisions.
  - It is true you can update a tag on Dockerhub, `ubuntu:14.04` does change
