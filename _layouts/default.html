@@ -8,10 +8,10 @@ layout: compress
     <meta name="google-site-verification" content="HvOMOXBefNLvJCYEGHm9ulUQsdgB59PYXjlsQe5H844" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="index, follow" />
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% if paginator.posts %}
 {% for post in paginator.posts %}
-    <meta http-equiv="refresh" content="0; url={{ post.url }}" />
+    <meta http-equiv="refresh" content="0; url={{ post.url }}/" />
 {% endfor %}
 {% endif %}
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
