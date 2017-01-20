@@ -11,7 +11,7 @@ layout: compress
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% if paginator.posts %}
 {% for post in paginator.posts %}
-    <meta http-equiv="refresh" content="0; url={{ post.url }}/" />
+    <meta http-equiv="refresh" content="0; url={{ post.url }}" />
 {% endfor %}
 {% endif %}
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
