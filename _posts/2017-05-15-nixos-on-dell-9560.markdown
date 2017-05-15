@@ -10,7 +10,6 @@ I have:
 ```
 Product Name: XPS 15 9560
 System BIOS: 1.0.3
-Service Tag: 3862XF2
 ePSA: Build 4304.17 UEFI ROM
 ```
 
