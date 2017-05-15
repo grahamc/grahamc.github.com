@@ -1,3 +1,6 @@
+---
+title: NixOS on a Dell 9560
+---
 # Documents
 
 Repair manual: [http://topics-cdn.dell.com/pdf/xps-15-9560-laptop_setup%20guide_en-us.pdf](http://topics-cdn.dell.com/pdf/xps-15-9560-laptop_setup%20guide_en-us.pdf)
