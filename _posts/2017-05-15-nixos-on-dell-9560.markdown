@@ -1,6 +1,6 @@
 # Documents
 
-Repair manual: http://topics-cdn.dell.com/pdf/xps-15-9560-laptop_setup%20guide_en-us.pdf
+Repair manual: [http://topics-cdn.dell.com/pdf/xps-15-9560-laptop_setup%20guide_en-us.pdf](http://topics-cdn.dell.com/pdf/xps-15-9560-laptop_setup%20guide_en-us.pdf)
 
 I have:
 
@@ -22,7 +22,7 @@ Make a note on the drive, store it for later. Just in case.
 
 Also write the installer image to a USB disk ask described in the
 instructions:
-https://nixos.org/nixos/manual/index.html#sec-uefi-installation
+[https://nixos.org/nixos/manual/index.html#sec-uefi-installation](https://nixos.org/nixos/manual/index.html#sec-uefi-installation)
 
 Plug in your USB disk before rebooting to the BIOS.
 
@@ -114,7 +114,7 @@ Windows reports a resolution of 3840x2160, but scaled 250%.
 
 After you boot, you can type `setfont latarcyrheb-sun32` and get a
 slightly larger font. (Found:
-https://wiki.archlinux.org/index.php/HiDPI#Linux_console)
+[https://wiki.archlinux.org/index.php/HiDPI#Linux_console](https://wiki.archlinux.org/index.php/HiDPI#Linux_console))
 
 #### Wifi
 
@@ -130,8 +130,7 @@ wpa_supplicant -D nl80211,ext -i wlp2s0 -c <(wpa_passphrase YourWififNetwork "Yo
 After connecting, Fn-Alt-F2 to change to TTY2 for the rest of the
 work. (Fix the font there, too.)
 
-This was extremely helpful:
-https://nixos.org/wiki/Wpa_supplicant#I.27m_on_a_LiveCD_and_I_can.27t_manually_connect_to_any_wireless_network
+This was extremely helpful: [https://github.com/NixOS/nixpkgs/issues/13342#issuecomment-301451545](https://github.com/NixOS/nixpkgs/issues/13342#issuecomment-301451545)
 
 #### Disks
 
@@ -334,7 +333,7 @@ screen #0:
 
 I took the 1016x571 and divided by 2.5, based on the 250% scaling I
 saw in the Windows settings, and using
-https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI, came
+[https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI](https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI), came
 up with:
 
 ```nix
@@ -387,7 +386,7 @@ $ echo "100" | sudo tee /sys/class/backlight/intel_backlight/brightness
 $ nix-shell -p xorg.xbacklight --run "xbacklight -set 50"
 ```
 
-See: https://wiki.archlinux.org/index.php/Backlight
+See: [https://wiki.archlinux.org/index.php/Backlight](https://wiki.archlinux.org/index.php/Backlight)
 
 #### Audio works out of the box, including headphone switching
 
@@ -427,7 +426,7 @@ psmouse serio1: Failed to enable mouse on isa0060/serio1
 
 #### =ACPI: [Firmware Bug]: BIOS _OSI(Linux) query ignored=
 Not an issue:
-https://askubuntu.com/questions/175793/what-does-the-following-dmesg-output-means
+[https://askubuntu.com/questions/175793/what-does-the-following-dmesg-output-means](https://askubuntu.com/questions/175793/what-does-the-following-dmesg-output-means)
 
 #### cpupower
 
@@ -437,7 +436,7 @@ cpupower: Error setting new values.
 ```
 
 Add: `powerManagement.cpuFreqGovernor = "powersave";` to your
-configuration. See: https://github.com/NixOS/nixpkgs/issues/9611
+configuration. See: [https://github.com/NixOS/nixpkgs/issues/9611](https://github.com/NixOS/nixpkgs/issues/9611)
 
 ### BIOS Upgrades Without Windows
 
@@ -498,9 +497,11 @@ Under `xinput` it is `id=12`. `xinput list-props 12` revealed more
 information.
 
 See:
-**** https://wiki.archlinux.org/index.php/Touchscreen
-**** https://wiki.archlinux.org/index.php/Libinput
-**** https://askubuntu.com/questions/863563/libinput-and-touchscreen-support
+
+ - [https://wiki.archlinux.org/index.php/Touchscreen](https://wiki.archlinux.org/index.php/Touchscreen)
+ - [https://wiki.archlinux.org/index.php/Libinput](https://wiki.archlinux.org/index.php/Libinput)
+ - [https://askubuntu.com/questions/863563/libinput-and-touchscreen-support](https://askubuntu.com/questions/863563/libinput-and-touchscreen-support)
+
 #### VGA Switcheroo
 
 Unable to enable Bumblebee, because I'm using the latest linux kernel
@@ -544,14 +545,14 @@ mce: [Hardware Error]: machine check events logged
 ```
 
 Some reports of these here:
-http://en.community.dell.com/techcenter/os-applications/f/4613/t/19997490
+[http://en.community.dell.com/techcenter/os-applications/f/4613/t/19997490](http://en.community.dell.com/techcenter/os-applications/f/4613/t/19997490)
 
 Using `mcelog` (`nix-shell -p mcelog`) it shows some output, but
 requires an update. Our `mcelog` is out of date. I updated it in
 unstable, and created an `mcelog` service. Nothing too scary in the
 log, not sure what it is.
 
-See: https://github.com/andikleen/mcelog/blob/master/mcelog.service
+    See: [https://github.com/andikleen/mcelog/blob/master/mcelog.service](https://github.com/andikleen/mcelog/blob/master/mcelog.service)
 
 #### `int3403 thermal: probe of INT3403:06 failed with error -22`
 
