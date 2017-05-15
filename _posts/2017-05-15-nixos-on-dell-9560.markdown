@@ -1,0 +1,568 @@
+# Documents
+
+Repair manual: http://topics-cdn.dell.com/pdf/xps-15-9560-laptop_setup%20guide_en-us.pdf
+
+I have:
+
+```
+Product Name: XPS 15 9560
+System BIOS: 1.0.3
+Service Tag: 3862XF2
+ePSA: Build 4304.17 UEFI ROM
+```
+
+## Initial Setup
+### Make a USB recovery disk for windows
+
+You need a 16gb flash drive, and it will use the whole drive. Search
+Windows for "recovery" and it should recommend "Create a recovery
+drive" or something.
+
+Make a note on the drive, store it for later. Just in case.
+
+Also write the installer image to a USB disk ask described in the
+instructions:
+https://nixos.org/nixos/manual/index.html#sec-uefi-installation
+
+Plug in your USB disk before rebooting to the BIOS.
+
+### Reboot to the BIOS
+
+Pressing F2 when the DELL logo appears on the screen (repair manual,
+page 96) takes you to the BIOS.
+
+Pressing F2 _before_ the DELL logo appears enters you in to a
+Diagnostic Boot.
+
+Note: You don't need to press "Fn" with "F2" to enter setup.
+
+You can navigate the BIOS with the arrow keys, or mouse, or touch
+screen.
+
+#### Disable Secure Boot
+
+Navigate to Secure boot -> Secure Boot Enable, select Disabled.
+
+In General -> Boot Sequence, you should see in the top right "Windows
+Boot Manager" and an entry for your USB drive, "UEFI: ...". Select the
+Windows Boot Manager by tapping on it or with the mouse, then using
+the arrow icons to right move it to the bottom of the priority list.
+
+When I did this, I also inserted my Windows Recovery USB and made it
+the highest priority. This way, I can check the disk is good, reboot,
+unplug, and move on to the NixOS without going back in to the BIOS.
+
+This seemed to only make the change for a single boot. I also always
+saved these as User Custom Settings or whatever the option is. I'm not
+sure what that means, but I did it.
+
+#### Disable RAID mode
+
+System Configuration -> SATA Operation -> Select AHCI.
+
+In RAID mode, Linux doesn't seem to pick them up. I'm not sure why it
+is in RAID mode to begin with. If you want to dig in to this, the
+hardware reported here as Intel 82801 SATA in RAID mode.
+
+#### Optional: Enable USB Wake Support
+
+Power Management -> USB Wake Support -> Enable USB Wake Support
+
+#### Interesting Features
+
+ - System Configuration -> USB PowerShare
+ - Security -> Various password settings (including Strong Password
+   and Password Bypass)
+ - Security -> TPM 2.0 Security
+ - Intel Software Guard Extensions
+ - C-States Control?
+ - Turboboost?
+ - MEBx Hotkey
+
+According to Security -> OROM Keyboard Access, you can press:
+
+ - Ctrl-1 to access Intel RAID config
+ - Crll-P/F12 to access Intel Management Engine BIOS Extension
+
+
+## Reboot in to the NixOS Installer
+
+I reboot and there it is, loaded, the beautiful (lol) systemd-boot.
+The text is very small. God help our eyes.
+
+At the boot menu, I selected the default, "NixOS Live CD". It worked
+perfectly. I also tried the "NixOS Live CD (with nomodeset)" and it
+seemed to work just the same. I continued on with "NixOS Live CD".
+
+#### Resolution....
+
+I tried pressing `e` to edit boot options and set the screen to a
+lower resolution with `vga` and `video`, but none of them worked. One
+point for debugging is I see in the journal:
+
+```text
+fb0: EFI VGA frame buffer device
+```
+
+and if I looked at `/sys/class/graphics/fb0/modes` I only saw one mode:
+
+```text
+3840x2160p-87
+```
+
+Windows reports a resolution of 3840x2160, but scaled 250%.
+
+After you boot, you can type `setfont latarcyrheb-sun32` and get a
+slightly larger font. (Found:
+https://wiki.archlinux.org/index.php/HiDPI#Linux_console)
+
+#### Wifi
+
+Works out of the box! Yay! Uses an Atheros driver (model QCA6174)
+
+can be setup with:
+
+
+```text
+wpa_supplicant -D nl80211,ext -i wlp2s0 -c <(wpa_passphrase YourWififNetwork "YourWifiPassword")
+```
+
+After connecting, Fn-Alt-F2 to change to TTY2 for the rest of the
+work. (Fix the font there, too.)
+
+This was extremely helpful:
+https://nixos.org/wiki/Wpa_supplicant#I.27m_on_a_LiveCD_and_I_can.27t_manually_connect_to_any_wireless_network
+
+#### Disks
+
+If you don't have devices at `/dev/nvme_*` you forgot to turn off RAID
+mode, or you're on your own...
+
+You'll want to use `gdisk` on `/dev/nvme0n1`, I found this via `lsblk`,
+as according to the UEFI instructions in the manual.
+
+I then deleted partitions 2 through 6, leaving only 500M EFI system
+partition, and created partitions so it looked like:
+
+| Partition | Size                  | Code   | Purpose                  |
+|-----------+-----------------------+--------+--------------------------|
+|         1 | 500 MiB               | `EF00` | EFI partition            |
+|         2 | 3 MiB                 | `8300` | cryptsetup luks key      |
+|         3 | 16 GiB                | `8300` | swap space (hibernation) |
+|         4 | remaining (460.4 GiB) | `8300` | root filesystem          |
+
+Note I use `8300` as the code because they're all encrypted. Calling
+the swap partition swap, systemd will try to automatically use it.
+
+Then:
+
+```text
+# Create an encrypted disk to hold our key, the key to this drive
+# is what you'll type in to unlock the rest of your drives... so,
+# remember it:
+$ cryptsetup luksFormat /dev/nvme0n1p2
+$ cryptsetup luksOpen /dev/nvme0n1p2 cryptkey
+
+# Fill our key disk with random data, wihch will be our key:
+$ dd if=/dev/random of=/dev/mapper/cryptkey bs=1024 count=14000
+
+# Use the encrypted key to create our encrypted swap:
+$ cryptsetup luksFormat --key-file=/dev/mapper/cryptkey /dev/nvme0n1p3
+
+# Create an encrypted root with a key you can remember.
+$ cryptsetup luksFormat /dev/nvme0n1p4
+# Now add the cryptkey as a decryption key to the root partition, this
+# way you can only decrypt the cryptkey on startup, and use the
+# cryptkey to decrypt the root.
+#
+# The first human-rememberable key we added is just in case.
+$ cryptsetup luksAddKey /dev/nvme0n1p4 /dev/mapper/cryptkey
+
+# Now we open the swap and the root and make some filesystems.
+$ cryptsetup luksOpen --key-file=/dev/mapper/cryptkey /dev/nvme0n1p3 cryptswap
+$ mkswap /dev/mapper/cryptswap
+
+$ cryptsetup luksOpen --key-file=/dev/mapper/cryptkey /dev/nvme0n1p4 cryptroot
+$ mkfs.ext4 /dev/mapper/cryptroot
+
+# and rebuild the boot partition:
+$ mkfs.vfat /dev/nvme0n1p1
+```
+
+Then for a not fun bit, matching entries in `/dev/disk/by-uuid/` to
+the partitions we want to mount where. Running `ls -l
+/dev/disk/by-uuid/` shows which devices have which UUIDs. To determine
+what `dm-1` and `dm2`, I ran `ls -la /dev/mapper`:
+
+| name                                   | symlink to  | note                |
+|----------------------------------------+-------------+---------------------|
+| `1234-5678`                            | `sda2`      | installer           |
+| `1970-01-01-00-00-01-00`               | `sda1`      | installer           |
+| `AAAA-AAAA`                            | `nvme0n1p1` | /boot               |
+| `BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB` | `nvme0n1p2` | encrypted cryptkey  |
+| `CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC` | `nvme0n1p3` | encrypted cryptswap |
+| `DDDDDDDD-DDDD-DDDD-DDDD-DDDDDDDDDDDD` | `nvme0n1p4` | encrypted cryptroot |
+| `EEEEEEEE-EEEE-EEEE-EEEE-EEEEEEEEEEEE` | `dm-1`      | decrypted cryptswap |
+| `FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF` | `dm-2`      | decrypted cryptroot |
+
+Note I do have a `dm-0` for `cryptkey`, but no UUID but we won't need
+it. I substituted the actual hash with `A` s `B` s `C` s `D` s `E` s and
+`F` s in order to make the mount commands easier.
+
+```text
+# Enable swap using the decrypted cryptswap:
+$ swapon /dev/disk/by-uuid/EEEEEEEE-EEEE-EEEE-EEEE-EEEEEEEEEEEE
+
+# Mount the decrypted cryptroot to /mnt
+$ mount /dev/disk/by-uuid/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF /mnt
+
+# Setup and mount the boot partition
+$ mkdir /mnt/boot
+$ mount /dev/disk/by-uuid/AAAA-AAAA /mnt/boot
+```
+
+### Initial Configuration
+
+Run `nixos-generate-config --root /mnt`
+
+#### `hardware-configuration.nix` changes
+
+I had to edit the `hardware-configuration.nix` to setup the luks
+configuration. I did this with `nix-shell -p emacs`, deleted the
+`boot.initrd.luks.devices` line, and added:
+
+```nix
+{
+  # !!! cryptkey must be done first, and the list seems to be
+  # alphabetically sorted, so take care that cryptroot / cryptswap,
+  # whatever you name them, come after cryptkey.
+  boot.initrd.luks.devices = {
+    cryptkey = {
+      device = "/dev/disk/by-uuid/BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB";
+    };
+
+    cryptroot = {
+      device = "/dev/disk/by-uuid/DDDDDDDD-DDDD-DDDD-DDDD-DDDDDDDDDDDD";
+      keyFile = "/dev/mapper/cryptkey";
+    };
+
+    cryptswap = {
+      device = "/dev/disk/by-uuid/CCCCCCCC-CCCC-CCCC-CCCC-CCCCCCCCCCCC";
+      keyFile = "/dev/mapper/cryptkey";
+    };
+  };
+}
+```
+
+It should already be correct, but check that:
+
+1. `swapDevices` refers to
+   `/dev/disk/by-uuid/EEEEEEEE-EEEE-EEEE-EEEE-EEEEEEEEEEEE`
+2. `fileSystems."/boot".device` refers to
+   `/dev/disk/by-uuid/AAAA-AAAA`
+3. `fileSystems."/".device` refers to
+   `/dev/disk/by-uuid/FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF`
+
+#### `configuration.nix` changes
+
+The generated `configuration.nix` seemed correct, too, but I made some
+changes:
+
+```nix
+{
+  # I set the boot.kernelPackages to linuxPackages_latest just out of
+  # habit, since I'm a power-user I'd rather detect problems before
+  # other users.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # I like networkmanager over wpa_supplicant, and with networkmanager
+  # you don't need to enable networking.wireless. You _do_ need to
+  # enable one of them, or you'll not have wifi when you boot back up.
+  networking.networkmanager.enable = true;
+
+  i18n.consoleFont = "latarcyrheb-sun32";
+
+  # See the cpufreq section below
+  powerManagement.cpuFreqGovernor = "powersave";
+
+  services.xserver = {
+    enable = true;
+    # Note I didn't set autorun to be true until I figured out the
+    # monitorSection / went through the "X Server Resolution" process
+    # below, because the xserver display was much too small. I set it
+    # to true after I had sorted out the DPI.
+    autorun = true;
+
+    # libinput performs better for me than synaptics:
+    libinput.enable = true;
+
+    # Just my personal preference:
+    displayManager.lightdm.enable = true;
+    windowManager.i3.enable = true;
+
+    monitorSection = ''
+      DisplaySize 406 228
+    '';
+  };
+}
+```
+
+I did not set `users.mutableUsers` to `false` yet, or create my own
+user. I usually do this once I get to a GUI so I can set
+`hashedPassword`.
+
+#### X Server Resolution
+
+Note that when testing this, I would:
+
+1. run `systemctl start display-manager` to start it
+2. Press escape to exit the i3 configurator
+3. press Alt-Enter to get a terminal
+4. run `systemctl stop display-manager` to stop X
+5. type Fn-Alt-F1 to get back to my terminal
+
+`xdpyinfo | grep -B2 resolution` (installed with `nix-shell -p
+xorg.xdpyinfo`) revealed:
+
+```text
+screen #0:
+ dimensions:  3840x2160 pixels (1016x571 millimeters)
+ resolution:  96x96 dots per inch
+```
+
+##### Successfully raised the resolution:
+
+I took the 1016x571 and divided by 2.5, based on the 250% scaling I
+saw in the Windows settings, and using
+https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI, came
+up with:
+
+```nix
+{
+  services.xserver.monitorSection = ''
+    DisplaySize 406 228
+  '';
+}
+```
+
+however when I started a terminal in i3, it was still tiny. Adding
+`terminator` to `systemPackages` seemed to scale correctly. Note: on
+my other High-DPI computer, I never fixed xterm and it never seemed to
+matter.
+
+##### Failed to fix the resolution:
+```nix
+{
+  services.xserver.screenSection = ''
+    Option "DPI" "240 x 240"
+  '';
+}
+```
+
+##### Fixed the resolution, but was super fuzzy:
+
+On startup, running `xrandr --output eDP1 --scale 0.4x0.4` (0.4 being
+1 divided by 2.5)
+### Install...
+
+NOTE: If you use `nix-shell` you must not run `nixos-install` inside
+the `nix-shell`!
+
+I ran `nixos-install`, rebooted, and it worked like a charm.
+
+Boots fine!
+
+### Hardware Check
+
+#### Battery sensor worked out of the box
+#### Webcam looks up your nose, but worked fine out of the box.
+#### Backlight (intel) works out of the box
+
+```text
+$ cat /sys/class/backlight/intel_backlight/max_brightness
+187
+
+$ echo "100" | sudo tee /sys/class/backlight/intel_backlight/brightness
+
+$ nix-shell -p xorg.xbacklight --run "xbacklight -set 50"
+```
+
+See: https://wiki.archlinux.org/index.php/Backlight
+
+#### Audio works out of the box, including headphone switching
+
+Volume control: `alsamixer` works out of the box, using Master /
+Headphone / Speaker mixers.
+
+#### Suspend
+
+`systemctl suspend` suspects correctly, and pressing the mouse button
+resumes correctly.
+
+#### Hibernate
+`systemctl hibernate` great if you have swap.
+
+#### Trackpad
+
+Using `services.xserver.libinput.enable = true;` fixes all these
+problems, and the touch screen continue to work. Right click by
+clicking in the bottom right corner.
+
+Notes from before:
+
+It works, but it seems to be in absolute positioning mode, and right
+click seems to not work.
+
+```text
+psmouse serio1: synaptics: device claims to have extended capability 0x0c, but I'm not able to read it.
+psmouse serio1: synaptics: Unable to initialize device.
+```
+
+Later:
+
+```text
+psmouse serio1: Failed to enable mouse on isa0060/serio1
+```
+
+
+#### =ACPI: [Firmware Bug]: BIOS _OSI(Linux) query ignored=
+Not an issue:
+https://askubuntu.com/questions/175793/what-does-the-following-dmesg-output-means
+
+#### cpupower
+
+```text
+cpupower: Setting cpu: 0
+cpupower: Error setting new values.
+```
+
+Add: `powerManagement.cpuFreqGovernor = "powersave";` to your
+configuration. See: https://github.com/NixOS/nixpkgs/issues/9611
+
+### BIOS Upgrades Without Windows
+
+1. Make sure you're on AC power. NOT the optional battery pack! It
+   will not boot to USB on the battery pack.
+2. `nix-shell -p gparted -p unetbootin`
+3. run `sudo gparted` a format your USB disk to have one partition,
+   FAT32, with the boot flag. After, right click and Format the
+   partition as fat32.
+4. Mount your USB disk (mine was at `/dev/sda1`) to `/mnt`
+5. Run `sudo unetbootin`
+6. Select FreeDOS 1.0 from the menu
+7. Make sure the `USB Drive` `Type` is selected, and select the USB
+   drive (again, mine was `/dev/sda1`) Then press OK
+8. Download your BIOS update from Dell, and copy it to `/mnt/`.
+9. Reboot to the BIOS setup
+10. under Boot Options change `UEFI` to `Legacy` and make sure the
+    boot devices above included at least USB.
+11. **Prepare to stick around for the next 4 steps! Don't look away!
+    FreeDOS's default option is install to the hard disk! It may be
+    fine, but I've never tried it.**
+12. Save and quit with the USB device plugged in.
+13. Select the only boot option
+14. Then select the "safe mode" option that says it won't load
+    drivers.
+15. Type `C:<enter>` then `dir<enter>` and type `XPS<tab>` to
+    auto-select the XPS BIOS update and press Enter.
+16. The update will prompt for `y` a few times. Once it is done, enter
+    the BIOS again.
+17. Verify the update took place
+18. Disable the legacy boot, switching back to UEFI.
+
+### Things to look in to...
+#### Touch screen
+ - Touch screen works out of the box (WHAT!)
+ - doesn't scroll?
+ - any touch is a click
+
+In `/proc/bus/input/devices` the touchscreen is labeled:
+
+```text
+I: Bus=0003 Vendor=04f3 Product=24a0 Version=0110
+N: Name="ELAN Touchscreen"
+P: Phys=usb-0000:00:14.0-9/input0
+S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb1/1-9/1-9:1.0/0003:04F3:24A0.0001/input/input11
+U: Uniq=
+H: Handlers=event6 mouse0
+B: PROP=2
+B: EV=2
+B: KEY=400 0 0 0 0 0
+B: ABS=3273800000000003 (may be wrong number of 0's?)
+```
+
+Running `cat /dev/input/event6` revealed lots of output when I touched
+the screen.
+
+Under `xinput` it is `id=12`. `xinput list-props 12` revealed more
+information.
+
+See:
+**** https://wiki.archlinux.org/index.php/Touchscreen
+**** https://wiki.archlinux.org/index.php/Libinput
+**** https://askubuntu.com/questions/863563/libinput-and-touchscreen-support
+#### VGA Switcheroo
+
+Unable to enable Bumblebee, because I'm using the latest linux kernel
+and the nvidia driver doesn't compile with it yet.
+
+```text
+VGA Switcheroo: detected Optimus DSM method \_SB_.PCI0.PEG0.PEGP handle
+nouveau: detected PR support, will not use DSM
+nouveau: 0000:01:00.0: enabling device (0006 -> 0007)
+nouveau: 0000:01:00.0: unknown chipset (137000a1)
+nouveau: probe of 0000:01:00.0 failed with error -12
+```
+
+#### Wifi
+
+```text
+athk10k_pci 0000:02:00.0: Direct firmware load for athk10k/pre-cal-pci-0000:02:00.0.bin failed with error -2
+athk10k_pci 0000:02:00.0: Direct firmware load for athk10k/cal-pci-0000:02:00.0.bin failed with error -2
+athk10k_pci 0000:02:00.0: Direct firmware load for ath10k/QCA6174/hw3.0/firmware-5.bin failed with error -2
+athk10k_pci 0000:02:00.0: could not fetch firmware file 'ath10k/QCA6174/hw3.0/firmware-5.bin': -2
+```
+
+#### Warnings pre crypt-setup
+
+```text
+ACPI Error: [\_SB_.PCIO.XHC_.RHUB.HS11] Namespace lookup failure, AE_NOT_FOUND (20160831/dswload-210)
+ACPI Exception: AE_NOT_FOUND, During name lookup/catalog (20160831/psobject-227)
+ACPI Exception: AE_NOT_FOUND, (SSDT:xh_rvp11) while loading table (20160831/tbxfload-228)
+ACPI Error: 1 table load failures, 10 successful (20160831/tbxfload-246)
+DMAR: DRHD: handling fault status reg 2
+DMAR: [INTR-REMAP] Request device [f0:1f.0] fault index 2010 [fault reason 34] Present field in the IRTE entry is clear
+```
+
+
+
+#### mce hardware error
+
+```text
+mce_notify_irq: 1 callbacks supressed
+mce: [Hardware Error]: machine check events logged
+```
+
+Some reports of these here:
+http://en.community.dell.com/techcenter/os-applications/f/4613/t/19997490
+
+Using `mcelog` (`nix-shell -p mcelog`) it shows some output, but
+requires an update. Our `mcelog` is out of date. I updated it in
+unstable, and created an `mcelog` service. Nothing too scary in the
+log, not sure what it is.
+
+See: https://github.com/andikleen/mcelog/blob/master/mcelog.service
+
+#### `int3403 thermal: probe of INT3403:06 failed with error -22`
+
+
+#### Other Notes
+ - In the console, closing the lid causes it to go to sleep in some
+   fashion, but opening the lid again doesn't get the screen back.
+ - In X with no extra configuration, closing the lid and opening it
+   sleeps and then restores the display correctly.
+
+
+### Non-Problems
+#### What are "Dell DMI hotkeys"?
+#### output after entering the crypt password
