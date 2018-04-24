@@ -9,13 +9,10 @@ layout: compress
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="index, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{% if paginator.posts %}
-{% for post in paginator.posts %}
-    <meta http-equiv="refresh" content="0; url={{ post.url }}" />
-{% endfor %}
-{% endif %}
+    {% unless page.id %}
+    <meta http-equiv="refresh" content="0; url={{ site.posts.first.url }}" />
+    {% endunless %}
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
     <style type="text/css">
       body {
         background-color: rgb(251, 251, 251);
@@ -63,13 +60,11 @@ layout: compress
         <h1>Graham Christensen</h1>
     </header>
 
-      {% if paginator.posts %}
-      {% else %}
-        {{ content }}
-      {% endif %}
+
+    {{ content }}
 
     <nav>
-      <h2>Other Articles</h2>
+      <h2>Posts</h2>
       <ul>
       {% for post in site.posts %}
         {% if post.hold %}
