@@ -155,6 +155,10 @@ partition, and created partitions so it looked like:
 Note I use `8300` as the code because they're all encrypted. Calling
 the swap partition swap, systemd will try to automatically use it.
 
+The cryptsetup luks key partition is 3 MiB so that it can fit the default
+[2 MiB LUKS header](https://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions)
+as well as the key.
+
 Then:
 
 ```text
@@ -165,7 +169,7 @@ $ cryptsetup luksFormat /dev/nvme0n1p2
 $ cryptsetup luksOpen /dev/nvme0n1p2 cryptkey
 
 # Fill our key disk with random data, wihch will be our key:
-$ dd if=/dev/random of=/dev/mapper/cryptkey bs=1024 count=14000
+$ dd if=/dev/urandom of=/dev/mapper/cryptkey bs=1024 count=14000
 
 # Use the encrypted key to create our encrypted swap:
 $ cryptsetup luksFormat --key-file=/dev/mapper/cryptkey /dev/nvme0n1p3
