@@ -1,5 +1,8 @@
 ---
 title: NixOS on a Dell 9560
+tags:
+ - nix
+
 ---
 # Documents
 

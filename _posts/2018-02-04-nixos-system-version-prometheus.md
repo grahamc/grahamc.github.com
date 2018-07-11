@@ -2,6 +2,7 @@
 layout: post
 title: Prometheus and the NixOS System Version
 bigimg: /resources/2018-02-04-grafana-prometheus-nixos-version.png
+tags: nix
 ---
 
 Use the Prometheus Node Exporter Textfile collector to help

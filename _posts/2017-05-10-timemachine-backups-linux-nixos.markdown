@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to use a NixOS Linux Server for Time Machine Backups
+tags: nix
 ---
 
 Several years ago I remember researching this process for Ubuntu, and
