@@ -25,15 +25,15 @@ edge locations, performance has been substantially improved build
 time:
 
 
-|                                             |                  | Sydney     |
-| ------------------------------------------- | ---------------- | :---------- |
-| **GHC<br/>117.06 MiB**                      | _Before_           | `2m58.491s`  |
-|                                             | _After<br />Cold Cache_ | `1m13.612s`  |
-|                                             | _After<br />Hot Cache_  | `0m15.707s`  |
-|                                             |                  |            |
-| **Graphical ISO closure<br/>1660.95 MiB**   | _Before_           | `38m46.957s` |
-|                                             | _After<br />Cold Cache_ | `6m16.014s`  |
-|                                             | _After<br />Hot Cache_  | `0m25.328s`  |
+|                                             |                         | Sydney       |
+| ------------------------------------------- | ----------------------- | :----------- |
+| **GHC<br/>117.06 MiB**                      | _Before_                | `178.491s`   |
+|                                             | _After<br />Cold Cache_ | `73.612s`    |
+|                                             | _After<br />Hot Cache_  | `15.707s`    |
+|                                             |                         |              |
+| **Graphical ISO closure<br/>1660.95 MiB**   | _Before_                | `2326.957s`  |
+|                                             | _After<br />Cold Cache_ | `376.014s`   |
+|                                             | _After<br />Hot Cache_  | `25.328s`    |
 
 
 Experiments in Tokyo and Hong Kong produced similar results.
