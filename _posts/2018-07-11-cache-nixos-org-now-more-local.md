@@ -31,7 +31,7 @@ time:
 |                                             | _After<br />Cold Cache_ | `73.612s`    |
 |                                             | _After<br />Hot Cache_  | `15.707s`    |
 |                                             |                         |              |
-| **Graphical ISO closure<br/>1660.95 MiB**   | _Before_                | `2326.957s`  |
+| **Graphical ISO closure<br/>1660.95 MiB**   | _Before_                | `2,326.957s`  |
 |                                             | _After<br />Cold Cache_ | `376.014s`   |
 |                                             | _After<br />Hot Cache_  | `25.328s`    |
 
