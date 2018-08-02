@@ -23,18 +23,18 @@ necessarily created our own build infrastructure. This allows us to
 give better quality guarantees to our users.
 
 The NixOS infrastructure team runs several types of servers: VMs on
-AWS, Packet bare metal, macOS systems, among others. We build
-thousands of packages a day, sometimes reaching many tens of thousands
-per day.
+AWS, bare metal, macOS systems, among others. We build thousands of
+packages a day, sometimes reaching many tens of thousands per day.
 
 Some of our builds depend on unique features like KVM which are only
 available by using bare metal servers, and all of them benefit from
 numerous, powerful cores.
 
-For over a year now, Packet.net has been generously providing bare
-metal hardware build resources for the NixOS build farm, and together
-we were curious how the new EPYC from AMD would compare to the
-hardware we were already using.
+For over a year now, Packet.net (where you can natively deploy NixOS
+by the way!) has been generously providing bare metal hardware build
+resources for the NixOS build farm, and together we were curious how
+the new EPYC from AMD would compare to the hardware we were already
+using.
 
 For this benchmark we are comparing Packet’s `m1.xlarge.x86` against
 Packet’s first EPYC machine, `c2.medium.x86`. Hydra already runs a
