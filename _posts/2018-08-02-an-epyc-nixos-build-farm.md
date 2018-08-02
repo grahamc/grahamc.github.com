@@ -13,7 +13,7 @@ versions of a package, multi-user package management and easy setup of
 build environments.
 
 The Nix community has collected and curated build instructions
-(“expressions”) for many thousands of packages in the Nix package
+(_expressions_) for many thousands of packages in the Nix package
 collection, Nixpkgs. Nixpkgs is a large GitHub repository, which
 receives over a thousand pull requests each month. Some of these
 changes can some times cause all of the packages to rebuild.
@@ -231,7 +231,7 @@ $slave2->succeed("
 ```
 
 Due to the multiple VM nature, and increased coordination between the
-nodes, we only saw a 30% increase.
+nodes, we saw a 30% increase.
 
 `nix-build '<nixpkgs/nixos/tests/mysql-replication.nix>'`
 
@@ -246,16 +246,17 @@ nodes, we only saw a 30% increase.
 
 #### BitTorrent
 
-[The BitTorrent test][bittorrent] follows the same pattern of starting and
-stopping a NixOS VM, but this test takes it a step further and tests
-with four VMs which talk to each other. I could do a whole post *just*
-on this test, but in short:
+[The BitTorrent test][bittorrent] follows the same pattern of starting
+and stopping a NixOS VM, but this test takes it a step further and
+tests with four VMs which talk to each other. I could do a whole post
+*just* on this test, but in short:
 
 
 - a machine serving as the tracker, named `$tracker`.
 - a client machine, `$client1`
 - another client machine, `$client2`
-- a router which facilitates some of the incredible things this test is actually doing.
+- a router which facilitates some of the incredible things this test
+  is actually doing.
 
 I’m going to gloss over the details here, but:
 
@@ -285,7 +286,8 @@ $client2->succeed("transmission-cli \
         http://tracker/test.torrent -M -w /tmp &");
 ```
 
-If both `$client1` and `$client2` receive the file intact, the test passes.
+If both `$client1` and `$client2` receive the file intact, the test
+passes.
 
 This test sees a much lower performance improvement, largely due to
 the networked coordination across four VMs.
@@ -320,7 +322,7 @@ cluster][machines] is able to get to share the work sooner.
 For this reason, the stdenv test is the one exception to the
 methodology. I wanted to test a full build from bootstrap to a working
 standard build environment. To force this, I changed the very root
-build causing everything “beneath” it to require a rebuild by applying
+build causing everything "beneath" it to require a rebuild by applying
 the following patch:
 
 ```diff
