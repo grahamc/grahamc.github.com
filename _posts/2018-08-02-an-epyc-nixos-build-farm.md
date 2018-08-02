@@ -14,9 +14,9 @@ build environments.
 
 The Nix community has collected and curated build instructions
 (_expressions_) for many thousands of packages in the Nix package
-collection, Nixpkgs. Nixpkgs is a large GitHub repository, which
-receives over a thousand pull requests each month. Some of these
-changes can some times cause all of the packages to rebuild.
+collection, Nixpkgs. The collection is a large GitHub repository,
+which receives over a thousand pull requests each month. Some of these
+changes can sometimes cause all of the packages to rebuild.
 
 To test changes to Nixpkgs and release updates for Nix and NixOS, we
 necessarily created our own build infrastructure. This allows us to
@@ -53,6 +53,7 @@ time-sensitive security patches.
 | _NixOS Version_ | `18.03.132610.49a6964a425`      | `18.03.132610.49a6964a425`               |
 | _Cost per Hour_ | $1.70/hr                        | $1.00/hr                                 |
 | _CPU_           | 24 Physical Cores @ 2.2 GHz     | 24 Physical Cores @ 2.2 GHz              |
+|                 | 2 x [Xeon® E5-2650 v4][xeon]    | 1 x [AMD EPYC™ 7401P][epyc]              |
 | _RAM_           | 256 GB of ECC RAM               | 64 GB of ECC RAM                         |
 
 
@@ -365,6 +366,11 @@ Nix project.
 Thank you to Packet.net for providing this hardware free of charge for
 this test through their [EPYC Challenge](https://www.packet.net/epyc).
 
+_and thank you Gustav, Daiderd, Andi, and zimbatm for their help with
+this article_
+
+[xeon]: https://ark.intel.com/products/91767/Intel-Xeon-Processor-E5-2650-v4-30M-Cache-2_20-GHz
+[epyc]: https://www.amd.com/en/products/cpu/amd-epyc-7401p
 [m1.xlarge.x86]: https://www.packet.net/bare-metal/servers/m1-xlarge/
 [c2.medium.x86]: https://www.packet.net/bare-metal/servers/c2-medium-epyc/
 [49a6964a425]: https://github.com/NixOS/nixpkgs/tree/49a6964a4250d98644da61f24dcc11ee0b28c4f9
