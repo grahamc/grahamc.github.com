@@ -5,6 +5,7 @@ tags: nix
 ---
 
 # EPYC vs m1.xlarge.x86
+
 Nix is a powerful package manager for Linux and other Unix systems
 that makes package management reliable and reproducible. It provides
 atomic upgrades and rollbacks, side-by-side installation of multiple
@@ -80,9 +81,9 @@ checkM() {
 ### Kernel Builds
 
 NixOS builds a generously featureful kernel by default, and the build
-can take some time. However, the compilation is well parallelizable
-across many cores. In what we will further see is a theme, the EPYC
-beat the Intel CPU with by about five minutes, or about 35% speed-up.
+can take some time. However, the compilation is easy to spread across
+multiple cores. In what we will further see is a theme, the EPYC beat
+the Intel CPU with by about five minutes, or about 35% speed-up.
 
 
 `nix-build '<nixpkgs>' -A linuxPackages.kernel`
@@ -176,15 +177,16 @@ I will start by showing the machine configuration of a slave:
     }
 ```
 
-1. This test starts by starting the master and waiting for MySQL to be
-healthy:
+1. This test starts by starting the `$master` and waiting for MySQL to
+be healthy:
 ```perl
 $master->start;
 $master->waitForUnit("mysql");
 $master->waitForOpenPort(3306);
 ```
 
-2. Continues to start slave1 and slave2 and wait for them to be up:
+2. Continues to start `$slave1` and `$slave2` and wait for them to be
+up:
 ```perl
 $slave1->start;
 $slave2->start;
@@ -194,27 +196,38 @@ $slave1->waitForOpenPort(3306);
 $slave2->waitForOpenPort(3306);
 ```
 
-3. It then validates some of the scratch data loaded in to the master has replicated properly to slave2:
+3. It then validates some of the scratch data loaded in to the
+`$master` has replicated properly to `$slave2`:
 ```perl
-$slave2->succeed("echo 'use testdb; select * from tests' | mysql -u root -N | grep 4");
+$slave2->succeed("
+        echo 'use testdb; select * from tests' \
+            | mysql -u root -N | grep 4
+");
 ```
 
-4. Then shuts down slave2:
+4. Then shuts down `$slave2`:
 ```perl
 $slave2->succeed("systemctl stop mysql");
 ```
 
-5. Writes some data to the master:
+5. Writes some data to the `$master`:
 ```perl
-$master->succeed("echo 'insert into testdb.tests values (123, 456);' | mysql -u root -N");
+$master->succeed("
+        echo 'insert into testdb.tests values (123, 456);' \
+            | mysql -u root -N
+");
 ```
 
-6. Starts slave2, and verifies the queries properly replicated from the master to the slave:
+6. Starts `$slave2`, and verifies the queries properly replicated from
+the `$master` to the slave:
 ```perl
 $slave2->succeed("systemctl start mysql");
 $slave2->waitForUnit("mysql");
 $slave2->waitForOpenPort(3306);
-$slave2->succeed("echo 'select * from testdb.tests where Id = 123;' | mysql -u root -N | grep 456");
+$slave2->succeed("
+        echo 'select * from testdb.tests where Id = 123;' \
+            | mysql -u root -N | grep 456
+");
 ```
 
 Due to the multiple VM nature, and increased coordination between the
@@ -246,30 +259,33 @@ on this test, but in short:
 
 I’m going to gloss over the details here, but:
 
-1. The tracker starts seeding a file:
+1. The `$tracker` starts seeding a file:
 ```perl
-$tracker->succeed("transmission-create /tmp/data/test.tar.bz2 -p -t http://10.0.0.2:6969/announce -o /tmp/test.torrent");
-$tracker->succeed("opentracker -p 6969 >&2 &");
+$tracker->succeed("opentracker -p 6969 &");
 $tracker->waitForOpenPort(6969);
-my $pid = $tracker->succeed("transmission-cli /tmp/test.torrent -M -w /tmp/data >&2 & echo \$!");
+my $pid = $tracker->succeed("transmission-cli \
+        /tmp/test.torrent -M -w /tmp/data");
 ```
 
-2. Client1 fetches the file from the tracker:
+2. `$client1` fetches the file from the tracker:
 ```perl
-$client1->succeed("transmission-cli http://tracker/test.torrent -w /tmp >&2 &");
+$client1->succeed("transmission-cli \
+        http://tracker/test.torrent -w /tmp &");
 ```
 
-3. Kills the seeding process on tracker so now only Client1 is able to serve the file
+3. Kills the seeding process on tracker so now only `$client1` is able
+to serve the file:
 ```perl
 $tracker->succeed("kill -9 $pid");
 ```
 
-4. Client2 fetches the file from Client1:
+4. `$client2` fetches the file from `$client1`:
 ```perl
-$client2->succeed("transmission-cli http://tracker/test.torrent -M -w /tmp >&2 &");
+$client2->succeed("transmission-cli \
+        http://tracker/test.torrent -M -w /tmp &");
 ```
 
-If both client1 and client2 receive the file intact, the test passes.
+If both `$client1` and `$client2` receive the file intact, the test passes.
 
 This test sees a much lower performance improvement, largely due to
 the networked coordination across four VMs.
@@ -322,21 +338,30 @@ index 63b4c8ecc24..1cd27f216f9 100644
        ${if system == "x86_64-linux" then "NIX_LIB64_IN_SELF_RPATH=1" else ""}
 ```
 
-The impact on build time here is stunning and makes an enormous difference: almost a full 20 minutes shaved off the bootstrapping time.
+The impact on build time here is stunning and makes an enormous
+difference: almost a full 20 minutes shaved off the bootstrapping
+time.
 
-| Test                                     | # | m1.xlarge.x86 (seconds) | EPYC (seconds) | Speed-up |
-| ---------------------------------------- | - | ----------------------- | -------------- | -------- |
-| `nix-build . -A stdenv`                  | 1 | 2,984.24                | 1,803.40       | 39.57%   |
-| (after a mass-rebuild change, see below) | 2 | 2,976.10                | 1,808.97       | 39.22%   |
-|                                          | 3 | 2,990.66                | 1,808.21       | 39.54%   |
-|                                          | 4 | 2,999.36                | 1,808.30       | 39.71%   |
-|                                          | 5 | 2,988.46                | 1,818.84       | 39.14%   |
+`nix-build '<nixpkgs>' -A stdenv`
+
+| Trial | m1.xlarge.x86 (seconds) | EPYC (seconds) | Speed-up |
+| -----:| -----------------------:| --------------:| --------:|
+|   _1_ | 2,984.24                | 1,803.40       | 39.57%   |
+|   _2_ | 2,976.10                | 1,808.97       | 39.22%   |
+|   _3_ | 2,990.66                | 1,808.21       | 39.54%   |
+|   _4_ | 2,999.36                | 1,808.30       | 39.71%   |
+|   _5_ | 2,988.46                | 1,818.84       | 39.14%   |
 
 ## Conclusion
 
-This EPYC machine has made a remarkable improvement in our build times and is helping the NixOS community push timely security updates and software updates to users and businesses alike. We look forward to expanding our footprint to keep up with the incredible growth of the Nix project.
+This EPYC machine has made a remarkable improvement in our build times
+and is helping the NixOS community push timely security updates and
+software updates to users and businesses alike. We look forward to
+expanding our footprint to keep up with the incredible growth of the
+Nix project.
 
-Thank you to Packet.net for providing this hardware free of charge for this test through their [EPYC Challenge](https://www.packet.net/epyc).
+Thank you to Packet.net for providing this hardware free of charge for
+this test through their [EPYC Challenge](https://www.packet.net/epyc).
 
 [m1.xlarge.x86]: https://www.packet.net/bare-metal/servers/m1-xlarge/
 [c2.medium.x86]: https://www.packet.net/bare-metal/servers/c2-medium-epyc/
