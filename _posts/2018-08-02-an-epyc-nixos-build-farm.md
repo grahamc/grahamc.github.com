@@ -307,7 +307,7 @@ the networked coordination across four VMs.
 the firewall of the router which Client2 uses to read from Client1.*
 
 
-**Standard Environment**
+### Standard Environment
 
 Our standard build environment, `stdenv`, is at the deepest part of
 this tree and almost nothing can be built until after it is completed.
