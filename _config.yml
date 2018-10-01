@@ -1,4 +1,4 @@
-highlighter: null
+highlighter: rouge
 markdown: kramdown
 permalink: /blog/:title
 exclude:

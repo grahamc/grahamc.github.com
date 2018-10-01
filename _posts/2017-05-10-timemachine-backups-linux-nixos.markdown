@@ -16,6 +16,7 @@ instructions yet, without even having to muck with `defaults write`.
 Incorporate the following in to your `configuration.nix`,
 `nixos-rebuild switch`, and you're done:
 
+```nix
     {
       networking.firewall.allowedTCPPorts = [
         548 # netatalk
@@ -45,5 +46,6 @@ Incorporate the following in to your `configuration.nix`,
         };
       };
     }
+```
 
 Tested on NixOS 17.03.

@@ -65,7 +65,7 @@ All of these tests were run on a fresh Packet.net server running NixOS
 For each test, I ran each build five times on each machine with
 `--check` which forces a local rebuild:
 
-```bash
+```sh
 checkM() {
   nix-build . -A "$1"
   for i in $(seq 1 5); do
