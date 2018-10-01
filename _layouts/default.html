@@ -10,7 +10,13 @@ layout: compress
     <meta name="robots" content="index, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% unless page.id %}
-    <meta http-equiv="refresh" content="0; url={{ site.posts.first.url }}" />
+      {% for post in site.posts %}
+        {% if post.hold %}
+        {% else %}
+          <meta http-equiv="refresh" content="0; url={{ post.url }}" />
+          {% break %}
+        {% endif %}
+      {% endfor %}
     {% endunless %}
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
     <style type="text/css">

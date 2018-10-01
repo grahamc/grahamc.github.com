@@ -6,9 +6,12 @@ layout: default
     <h2>
         {{ page.title }}
     </h2>
-    <p>
-      posted on {{ page.date | date: "%B %d %Y" }}
-    </p>
+    {% if page.hold %}
+      <h1 style="color: darkred; font-size: 50px; font-style:italic">draft, not yet published</h1>
+    {% else %}
+      <p>posted on {{ page.date | date: "%B %d %Y" }}</p>
+    {% endif %}
+
     {% if page.bigimg %}
     <img    src="{{ page.bigimg }}"
             alt="{{ page.title }}"
@@ -24,4 +27,3 @@ layout: default
   </header>
   {{ content }}
 </article>
-
