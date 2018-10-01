@@ -1,0 +1,15 @@
+digraph docker {
+
+        graph [ bgcolor="transparent" ];
+        node [ color="#545454" fontcolor="#545454" fontname = "monospace" ];
+        edge [color="#545454" ];
+
+        # rankdir=LR;
+
+        LayerA -> LayerB -> LayerC;
+
+        LayerA [ label = "RUN aptitude install -y python3" ];
+        LayerB [ label = "ADD . /code" ];
+        LayerC [ label = "RUN /code/setup.sh" ];
+
+}

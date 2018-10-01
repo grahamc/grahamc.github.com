@@ -1,0 +1,19 @@
+digraph "bash" {
+        graph [ bgcolor="transparent" ];
+        node [ color="#545454" fontcolor="#545454" fontname = "monospace" ];
+        edge [ color="#545454" ];
+
+        "/nix/store/pd3xx55jjik53gvbyrs4h0him03l3wah-bash-interactive-4.4-p23" [label = "bash-interactive-4.4-p23" ];
+        "/nix/store/pd3xx55jjik53gvbyrs4h0him03l3wah-bash-interactive-4.4-p23" -> "/nix/store/b0vzdhjgd296wmrxwg5cs3jwp7g72h4w-readline-7.0p5";
+        "/nix/store/pd3xx55jjik53gvbyrs4h0him03l3wah-bash-interactive-4.4-p23" -> "/nix/store/czx8vkrb9jdgjyz8qfksh10vrnqa723l-bash-4.4-p23";
+        "/nix/store/pd3xx55jjik53gvbyrs4h0him03l3wah-bash-interactive-4.4-p23" -> "/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27";
+        "/nix/store/pd3xx55jjik53gvbyrs4h0him03l3wah-bash-interactive-4.4-p23" -> "/nix/store/s2n99784krxl91mfw3cnn9ylbb5fjvkx-ncurses-6.1";
+        "/nix/store/b0vzdhjgd296wmrxwg5cs3jwp7g72h4w-readline-7.0p5" [label = "readline-7.0p5"];
+        "/nix/store/b0vzdhjgd296wmrxwg5cs3jwp7g72h4w-readline-7.0p5" -> "/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27";
+        "/nix/store/b0vzdhjgd296wmrxwg5cs3jwp7g72h4w-readline-7.0p5" -> "/nix/store/s2n99784krxl91mfw3cnn9ylbb5fjvkx-ncurses-6.1";
+        "/nix/store/czx8vkrb9jdgjyz8qfksh10vrnqa723l-bash-4.4-p23" [label = "bash-4.4-p23"];
+        "/nix/store/czx8vkrb9jdgjyz8qfksh10vrnqa723l-bash-4.4-p23" -> "/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27";
+        "/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27" [label = "glibc-2.27"];
+        "/nix/store/s2n99784krxl91mfw3cnn9ylbb5fjvkx-ncurses-6.1" [label = "ncurses-6.1"];
+        "/nix/store/s2n99784krxl91mfw3cnn9ylbb5fjvkx-ncurses-6.1" -> "/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27";
+}

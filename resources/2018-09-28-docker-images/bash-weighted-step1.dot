@@ -1,0 +1,20 @@
+digraph "bash" {
+        graph [ bgcolor="transparent" ];
+        node [ color="#545454" fontcolor="#545454" fontname = "monospace" ];
+        edge [ color="#545454" ];
+
+        "bash-interactive-4.4-p23" -> "glibc-2.27-A";
+        "bash-interactive-4.4-p23" -> "bash-4.4-p23" -> "glibc-2.27-B";
+        "bash-interactive-4.4-p23" -> "ncurses-6.1-A" -> "glibc-2.27-C";
+        "bash-interactive-4.4-p23" -> "readline-7.0p5" -> "ncurses-6.1-B" -> "glibc-2.27-D";
+        "readline-7.0p5" -> "glibc-2.27";
+
+        "glibc-2.27-A" [ label = "glibc-2.27" ];
+        "glibc-2.27-B" [ label = "glibc-2.27" ];
+        "glibc-2.27-C" [ label = "glibc-2.27" ];
+        "glibc-2.27-D" [ label = "glibc-2.27" ];
+
+        "ncurses-6.1-A" [ label = "ncurses-6.1" ];
+        "ncurses-6.1-B" [ label = "ncurses-6.1" ];
+
+}

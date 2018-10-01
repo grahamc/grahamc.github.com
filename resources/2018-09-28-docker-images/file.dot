@@ -1,0 +1,10 @@
+digraph file {
+        graph [ bgcolor="transparent" ];
+        node [ color="#545454" fontcolor="#545454" fontname = "monospace" ];
+        edge [color="#545454" ];
+
+        "/nix/store/ibfx7ryqnqf01qfzj4v7qhzhkd2v9mm7-file-5.34";
+        "/nix/store/ibfx7ryqnqf01qfzj4v7qhzhkd2v9mm7-file-5.34" -> "/nix/store/bv6znzsv2qkbcwwa251dx7n5dshz3nr3-zlib-1.2.11";
+        "/nix/store/ibfx7ryqnqf01qfzj4v7qhzhkd2v9mm7-file-5.34" -> "/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27";
+        "/nix/store/bv6znzsv2qkbcwwa251dx7n5dshz3nr3-zlib-1.2.11" -> "/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27";
+}

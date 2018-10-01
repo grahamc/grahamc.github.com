@@ -1,0 +1,7 @@
+digraph "bash" {
+        graph [ bgcolor="transparent" ];
+        node [ color="#545454" fontcolor="#545454" fontname = "monospace"  margin=.3];
+        edge [ color="#545454" ];
+
+        "bash-interactive-4.4-p23-A" [ shape="rect" label = "bash-interactive-4.4-p23: 1\nglibc-2.27: 10\nbash-4.4-p23: 2\nncurses-6.1: 4\nreadline-7.0p5: 2" ];
+}

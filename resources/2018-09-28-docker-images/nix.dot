@@ -1,0 +1,10 @@
+digraph nix {
+        graph [ bgcolor="transparent" ];
+        node [ color="#545454" fontcolor="#545454" fontname = "monospace" ];
+        edge [color="#545454" ];
+
+        rankdir=LR;
+
+        A -> B -> C;
+        A -> D;
+}
