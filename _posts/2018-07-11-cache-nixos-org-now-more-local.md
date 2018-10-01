@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 🏃💨 cache.nixos.org, now more local!
+title: cache.nixos.org, now more local!
 tags: nix
 ---
 
