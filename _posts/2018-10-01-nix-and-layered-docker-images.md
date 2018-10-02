@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker Layers, Caching, and Nix
+title: Optimising Docker Layers for Better Caching with Nix
 tags: nix
 ---
 
@@ -56,7 +56,7 @@ that the package installation isn't influenced by the code addition.
 Docker also can't know that installing package A has nothing to do
 with package B and the changes are separately cachable.
 
-### With restrictions, we can make better optimizations
+### With restrictions, we can make better optimisations
 
 Nix does have rules.
 
@@ -133,7 +133,7 @@ lied about how Docker represents layers.
 
 Docker's layers are _content addressable_ and aren't required to
 explicitly reference a parent layer. This means a layer for
-`readline-7.0p5` and doesn't have to mention that it has any
+`readline-7.0p5` doesn't have to mention that it has any
 relationship to `ncurses-6.1` or `glibc-2.27` at all.
 
 Instead each image has a _manifest_ which defines the order:
@@ -334,7 +334,8 @@ The automatic splitting and prioritization has improved image push and
 fetch times by an order of magnitude. Having multiple images allows
 Docker to request more than one at a time.
 
-_Thank you Target for having sponsored this work in
+_Thank you Target for having sponsored this work with
+[Tweag](https://tweag.io/) in
 [NixOS/nixpkgs#47411](https://github.com/NixOS/nixpkgs/pull/47411)._
 
 [125-layers]: https://github.com/moby/moby/blob/b3e9f7b13b0f0c414fa6253e1f17a86b2cff68b5/layer/layer_store.go#L23-L26
