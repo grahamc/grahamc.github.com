@@ -169,7 +169,7 @@ Then:
 # Create an encrypted disk to hold our key, the key to this drive
 # is what you'll type in to unlock the rest of your drives... so,
 # remember it:
-$ cryptsetup luksFormat /dev/nvme0n1p2
+$ cryptsetup luksFormat --type luks1 /dev/nvme0n1p2
 $ cryptsetup luksOpen /dev/nvme0n1p2 cryptkey
 
 # Fill our key disk with random data, wihch will be our key:
