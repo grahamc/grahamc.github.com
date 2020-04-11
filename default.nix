@@ -23,18 +23,12 @@ stdenv.mkDerivation {
     renderPhase() { eval "$renderPhase"; }
   '';
 
-  resourcesPhase = ''
-    #cp ${asciinema-css} ./asciinema.css
-    cp ./asci-cust.css ./asciinema.css
-    cp ${asciinema-js} ./asciinema.js
-  '';
-
   renderPhase = ''
     find . -name '*.dot' -print0 | xargs -0 -n1 -P$NIX_BUILD_CORES ./render.sh
   '';
 
   buildPhase = ''
-    eval "$resourcesPhase"
+    patchShebangs ./render.sh
     eval "$renderPhase"
     rm -f result
     rm -rf ./_site
