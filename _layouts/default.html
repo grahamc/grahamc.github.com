@@ -65,8 +65,13 @@ layout: compress
         color: rgb(65, 110, 210);
       }
 
-      pre {
-        overflow-x: auto;
+      pre > code {
+          display: block;
+          overflow-x: auto;
+      }
+
+      pre > code.language-tree {
+          line-height: 1.2;
       }
 
       table {
