@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How I run NixOS on ZFS
+title: ZFS Datasets for NixOS
 tags: nix
 ---
 
