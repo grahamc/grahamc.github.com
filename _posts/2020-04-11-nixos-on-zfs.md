@@ -2,7 +2,6 @@
 layout: post
 title: How I run NixOS on ZFS
 tags: nix
-hold: true
 ---
 
 The outdated and historical nature of the [Filesystem Hierarchy
