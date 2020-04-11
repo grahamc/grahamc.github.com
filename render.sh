@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 input=$1
 output="${1/.dot/.svg}"
