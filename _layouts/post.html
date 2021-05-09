@@ -2,14 +2,19 @@
 layout: default
 ---
 <article>
-  <header>
+   <header>
     <h2>
         {{ page.title }}
     </h2>
+    {% if page.subtitle %}
+    <p class="subtitle">
+        {{ page.subtitle }}
+    </p>
+    {% endif %}
     {% if page.hold %}
       <h1 style="color: darkred; font-size: 50px; font-style:italic">draft, not yet published</h1>
     {% else %}
-      <p>posted on {{ page.date | date: "%B %d %Y" }}</p>
+      <p class="date">posted on {{ page.date | date: "%B %d %Y" }}</p>
     {% endif %}
 
     {% if page.bigimg %}

@@ -4,7 +4,7 @@ layout: compress
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{page.title}} - {% endif %}Graham Christensen</title>
+    <title>{% if page.title %}{{page.title}}{% if page.subtitle %}: {{page.subtitle}}{% endif %} - {% endif %}Graham Christensen</title>
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
     <meta name="google-site-verification" content="HvOMOXBefNLvJCYEGHm9ulUQsdgB59PYXjlsQe5H844" />
@@ -55,6 +55,20 @@ layout: compress
         font-weight: normal;
       }
 
+      article header {
+          margin-left: 2rem;
+          line-height: 1.2;
+      }
+
+      header {
+          padding-bottom: 0.5rem;
+      }
+
+      header p.subtitle {
+          margin-right: 2em;
+          font-style: italic;
+      }
+
       img {
         max-width: 100%;
         display: block;
@@ -95,6 +109,7 @@ layout: compress
 
     {{ content }}
 
+    <hr />
     <nav>
       <h2>Posts</h2>
       <ul>

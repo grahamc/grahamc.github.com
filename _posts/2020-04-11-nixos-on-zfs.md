@@ -157,13 +157,13 @@ Splitting the disk this way is just fine, since `/boot` is rarely
 read or written.
 
 > *Note:* If you do partition the disk, make sure you set the disk's
-> scheduler to `noop`. ZFS takes this step automatically if it does
+> scheduler to `none`. ZFS takes this step automatically if it does
 > control the entire disk.
 >
-> On NixOS, you an set your scheduler to `noop` via:
+> On NixOS, you an set your scheduler to `none` via:
 >
 > ```nix
-> { boot.kernelParams = [ "elevator=noop" ]; }
+> { boot.kernelParams = [ "elevator=none" ]; }
 > ```
 
 # Clean isolation

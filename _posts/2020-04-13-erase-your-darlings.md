@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Erase your darlings.
+title: Erase your darlings
+subtitle: immutable infrastructure for mutable systems
 tags: nix
-hold: true
 ---
 
 I erase my systems at every boot.
