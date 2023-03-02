@@ -1,6 +1,6 @@
 highlighter: rouge
 markdown: kramdown
-permalink: /blog/:title
+permalink: /blog/:title/
 exclude:
   - CNAME
   - Gemfile
